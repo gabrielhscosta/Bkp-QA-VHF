@@ -1,0 +1,96 @@
+﻿using VHF.CommonMethods;
+using VHF.TestCase;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Windows;
+using OpenQA.Selenium.Appium.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using VHF.TestCase.ST00_ValidaLoginModulos;
+using VHF.TestCase.ST01_ReservaIndividual;
+
+namespace VHF.Main
+{
+    [TestClass]
+    public class SessaoMain : RegistroBase
+    {
+
+        private TestContext testContextInstance;
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
+        protected const string WinAppDriverUrl = "http://127.0.0.1:4723";
+        private const string dirAplicacaoVHF = @"C:\Totvs\Hoteis\VHF.exe";
+        protected const string dirAplicacaoVHFCaixa = @"C:\Totvs\Hoteis\VHFCaixa.exe";
+
+
+        public static WindowsDriver<WindowsElement> sessionVHF;
+
+        [ClassInitialize]
+        public static void Setup(TestContext context)
+        {
+            RegistraBaseHomologacaoVhf("QA_FRONT", "MSSQL", "RJOSRVDBODEV001");
+            RegistraBaseHomologacaoVhfCaixa("QA_FRONT", "MSSQL", "RJOSRVDBODEV001");
+
+            //AppiumServiceBuilder appiumLocalService = new AppiumServiceBuilder();
+            //appiumLocalService.UsingPort(4723).Build().Start();
+           
+            if (sessionVHF == null)
+            {
+                AppiumOptions options1 = new AppiumOptions();
+                options1.AddAdditionalCapability("app", dirAplicacaoVHF);
+                //sessionVHF = new WindowsDriver<WindowsElement>(appiumLocalService, options1);
+                sessionVHF = new WindowsDriver<WindowsElement>(new Uri(WinAppDriverUrl), options1);
+            }
+        }
+
+        [ClassCleanup]
+        public static void TearDown()
+        {
+            if (sessionVHF != null)
+            {
+                //sessionVHF.Quit();
+                //sessionVHF = null;
+            }
+
+        }
+
+        [TestMethod]
+
+        public void aLogin_VHF()
+        {
+            LoginVHF login = new LoginVHF();
+            login.ValidaLoginVHF();
+        }
+
+        [TestMethod]
+
+        public void CN001_Reserva_Individual()
+        {
+            try
+            {
+                CN001 reserva = new CN001();
+                reserva.ReservaIndividual();
+            }
+            catch
+            {
+                LoginVHF login = new LoginVHF();
+                CN001 reserva = new CN001();
+                login.ValidaLoginVHF();
+                reserva.ReservaIndividual();
+            }
+        }
+    }
+}
