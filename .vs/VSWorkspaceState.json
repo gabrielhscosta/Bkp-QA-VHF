@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\VHF",
+    "\\VHF\\bin",
+    "\\VHF\\obj\\Debug",
+    "\\VHF\\PageObjects",
+    "\\VHF\\TestCase"
   ],
+  "SelectedNode": "\\VHF\\Properties",
   "PreviewInSolutionExplorer": false
 }

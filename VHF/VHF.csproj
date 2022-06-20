@@ -78,10 +78,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonMethods\ConexaoBD.cs" />
     <Compile Include="CommonMethods\Elementos.cs" />
     <Compile Include="CommonMethods\FuncComuns.cs" />
     <Compile Include="CommonMethods\GeradorDadosFakes.cs" />
     <Compile Include="CommonMethods\HospedeFake.cs" />
+    <Compile Include="CommonMethods\RealizaConsultas.cs" />
     <Compile Include="CommonMethods\RegistroBase.cs" />
     <Compile Include="Main\SessaoMain.cs" />
     <Compile Include="PageObjects\AppObjects.cs" />
