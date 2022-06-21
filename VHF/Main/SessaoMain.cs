@@ -67,15 +67,15 @@ namespace VHF.Main
 
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("0 - Realizar Login")]
 
-        public void aLogin_VHF()
+        public void Login_VHF()
         {
             LoginVHF login = new LoginVHF();
             login.ValidaLoginVHF();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("1 - Reserva Individual")]
 
         public void CN001_Reserva_Individual()
         {
