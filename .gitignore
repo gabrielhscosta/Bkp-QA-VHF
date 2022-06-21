@@ -3,10 +3,9 @@
 ################################################################################
 
 /.vs
-vs/
-/.packages/
+.vs/
 packages/
-/.VHF/bin/
-/.VHF/obj/
-/.VHF/packages.config
-/.VHF/VHF.csproj
+VHF/bin/
+VHF/obj/
+VHF/packages.config
+VHF/VHF.csproj
