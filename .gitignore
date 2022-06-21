@@ -5,3 +5,7 @@
 /.vs
 /.packages/
 packages/
+/.VHF/bin/
+/.VHF/obj/
+/.VHF/packages.config
+/.VHF/VHF.csproj
