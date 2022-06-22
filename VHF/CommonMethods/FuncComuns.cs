@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
+using VHF.PageObjects;
+using OpenQA.Selenium.Interactions;
 
 namespace VHF.CommonMethods
 {
@@ -14,6 +16,8 @@ namespace VHF.CommonMethods
         {
 
         }
+
+        AppObjects appObjects = new AppObjects();
 
        public void ChamarAtalho(string tecla1, string tecla2, string tecla3 = null, string tecla4 = null)
        {
@@ -32,12 +36,20 @@ namespace VHF.CommonMethods
             }
        }
 
+        public void InserirNumNoites()
+        {
+            var anexEstd = sessionVHF.FindElementByName(appObjects.winEstada);
+
+            var editNoites = anexEstd.FindElementsByClassName(appObjects.TEdit);
+
+            var noitesEstd = editNoites.ElementAt(0);
+            new Actions(sessionVHF).MoveToElement(noitesEstd).DoubleClick().Perform();
+            noitesEstd.Clear();
+            noitesEstd.SendKeys(appObjects.numNoites);
+        }
+
        public void CriaReserva()
        {
-
-            Elementos.EncontraElementosClassName(sessionVHF, "TCMDateTimePicker").ElementAt(2).SendKeys("18/03/2022");
-            Elementos.EncontraElementosClassName(sessionVHF, "TCMDateTimePicker").ElementAt(1).SendKeys("22/03/2022");
-
             Elementos.EncontraElementoName(sessionVHF, "ocupado").Click();
             Elementos.EncontraElementoName(sessionVHF, "Tipo de UH Estadia");
             Elementos.EncontraElementoClassname(sessionVHF, "TEdit").SendKeys("SUITE MASTER");

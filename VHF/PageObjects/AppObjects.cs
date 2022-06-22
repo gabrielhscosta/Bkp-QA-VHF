@@ -94,5 +94,23 @@ namespace VHF.PageObjects
         public string TCMDBLookupCombo = ("TCMDBLookupCombo");
 
         #endregion
+
+        #region  Window
+
+        public string winEstada = ("Estada");
+
+        #endregion
+
+        #region Dados Hóspedes
+
+        public string numNoites = ("3");
+        public string categUhStnd = ("STND");
+        public string idiomaHosp = ("Portugues");
+        public string tipoDocConfirmacao = ("EM");
+
+        #endregion
+
+
+
     }
 }

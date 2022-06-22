@@ -21,6 +21,8 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.ChamarAtalho("e", "i");
 
+            funcComuns.InserirNumNoites();
+
             funcComuns.CriaReserva();
         }
 
