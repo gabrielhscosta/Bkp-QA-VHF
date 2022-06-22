@@ -48,7 +48,7 @@ namespace VHF.CommonMethods
             noitesEstd.SendKeys(appObjects.numNoites);
         }
 
-        public void PreencherDatasEstada()
+        public void InserirDatasEstada()
         {
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(2).SendKeys("01/07/2022");
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(1).SendKeys("05/07/2022");
