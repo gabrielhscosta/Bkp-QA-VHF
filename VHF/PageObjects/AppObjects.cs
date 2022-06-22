@@ -15,10 +15,8 @@ namespace VHF.PageObjects
         public string userSysOracle = ("CM");
         public string passSysOracle = ("CMSOL123");
         public string empresaSysOracle = ("KHOTEL - BASE TESTE SUPORTE");
-        public string agenciaTs = ("R");
-
+        
         #endregion
-
 
 
         #region Button
@@ -32,12 +30,12 @@ namespace VHF.PageObjects
         public string btnEditar = ("Editar");
         public string btnVoltar = ("Voltar");
         public string btnFechar = ("Fechar");
-
+        public string btnUhOcupado = ("ocupado");
+        public string btnUhCobrado = ("cobrado");
         #endregion
 
 
-
-        #region Edit
+        #region Componentes
 
         public string TEdit = ("TEdit");
         public string TDBEdit = ("TDBEdit");
@@ -48,9 +46,14 @@ namespace VHF.PageObjects
         public string TRealEdit = ("TRealEdit");
         public string TMemo = ("TMemo");
         public string TDBRealEdit = ("TDBRealEdit");
-
+        public string TwwDBDateTimePicker = ("TwwDBDateTimePicker");
+        public string TwwDBLookupCombo = ("TwwDBLookupCombo");
+        public string TwwDBComboBox = ("TwwDBComboBox");
+        public string TComboBox = ("TComboBox");
+        public string TCMDBLookupCombo = ("TCMDBLookupCombo");
+        public string TBitBtn = ("TBitBtn");
+        
         #endregion
-
 
 
         #region Screen
@@ -59,6 +62,16 @@ namespace VHF.PageObjects
         public string scrTelaPrincipalCAIXA = ("TfrmPrincipalCAIXA");
         public string scrSelecGeral = ("TfrmSelecaoGeral");
         public string scrMontaSelect = ("TfrmMontaSelect");
+
+        #endregion
+
+
+        #region  Window
+
+        public string winEstada = ("Estada");
+        public string winTipoUhEstadia = ("Tipo de UH Estadia");
+        public string winTipoUhTarifa = ("Tipo de UH Tarifa");
+        public string winDocConfirmacao = ("Documento de Confirmação");
 
         #endregion
 
@@ -84,29 +97,20 @@ namespace VHF.PageObjects
         #endregion
 
 
-
-        #region ComboBox
-
-        public string TwwDBDateTimePicker = ("TwwDBDateTimePicker");
-        public string TwwDBLookupCombo = ("TwwDBLookupCombo");
-        public string TwwDBComboBox = ("TwwDBComboBox");
-        public string TComboBox = ("TComboBox");
-        public string TCMDBLookupCombo = ("TCMDBLookupCombo");
-
-        #endregion
-
-        #region  Window
-
-        public string winEstada = ("Estada");
-
-        #endregion
-
-        #region Dados Hóspedes
+        #region Dados Reserva
 
         public string numNoites = ("3");
         public string categUhStnd = ("STND");
+        public string categUhSuite = ("SUITE MASTER");
         public string idiomaHosp = ("Portugues");
-        public string tipoDocConfirmacao = ("EM");
+        public string docEmail = ("EM");
+
+        #endregion
+
+
+        #region Tags
+
+        public string tagMenuItem = ("MenuItem");
 
         #endregion
 

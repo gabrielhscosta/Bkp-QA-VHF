@@ -12,6 +12,7 @@ namespace VHF.CommonMethods
         public string NomeFaker { get; set; }
         public string SobrenomeFaker { get; set; }
         public string EmailFaker { get; set; }
+        public string TratamentoHosp { get; set; }
         public string DtNascFaker { get; set; }
         public string CEPFaker { get; set; }
         public string CidadeFaker { get; set; }

@@ -23,16 +23,16 @@ namespace VHF.CommonMethods
        {
             if (tecla4 != null)
             {
-                Elementos.EncontraElementoTagName(sessionVHF, "MenuItem").SendKeys(Keys.Alt + tecla1 + tecla2 + tecla3 + tecla4);
+                Elementos.EncontraElementoTagName(sessionVHF, appObjects.tagMenuItem).SendKeys(Keys.Alt + tecla1 + tecla2 + tecla3 + tecla4);
             } 
             else if (tecla3 != null)
             {
-                Elementos.EncontraElementoTagName(sessionVHF, "MenuItem").SendKeys(Keys.Alt + tecla1 + tecla2 + tecla3);
+                Elementos.EncontraElementoTagName(sessionVHF, appObjects.tagMenuItem).SendKeys(Keys.Alt + tecla1 + tecla2 + tecla3);
             }
             else
             {
-                Elementos.EncontraElementoTagName(sessionVHF, "MenuItem");
-                Elementos.EncontraElementoTagName(sessionVHF, "MenuItem").SendKeys(Keys.Alt + tecla1 + tecla2);
+                Elementos.EncontraElementoTagName(sessionVHF, appObjects.tagMenuItem);
+                Elementos.EncontraElementoTagName(sessionVHF, appObjects.tagMenuItem).SendKeys(Keys.Alt + tecla1 + tecla2);
             }
        }
 
@@ -48,18 +48,24 @@ namespace VHF.CommonMethods
             noitesEstd.SendKeys(appObjects.numNoites);
         }
 
+        public void PreencherDatasEstada()
+        {
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(2).SendKeys("01/07/2022");
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(1).SendKeys("05/07/2022");
+        }
+
        public void CriaReserva()
        {
-            Elementos.EncontraElementoName(sessionVHF, "ocupado").Click();
-            Elementos.EncontraElementoName(sessionVHF, "Tipo de UH Estadia");
-            Elementos.EncontraElementoClassname(sessionVHF, "TEdit").SendKeys("SUITE MASTER");
-            Elementos.EncontraElementoName(sessionVHF, "Confirmar").Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnUhOcupado).Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhEstadia);
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
 
-            Elementos.EncontraElementoName(sessionVHF, "cobrado").Click();
-            Elementos.EncontraElementoName(sessionVHF, "Tipo de UH Tarifa");
-            Elementos.EncontraElementoClassname(sessionVHF, "TEdit").SendKeys("SUITE MASTER");
-            Elementos.EncontraElementoName(sessionVHF, "Confirmar").Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnUhCobrado).Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhTarifa);
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
             /* Elementos.EncontraElementoName(sessionVHF, "numero").Click();
              Elementos.EncontraElementoName(sessionVHF, "Seleciona UH");
@@ -67,25 +73,26 @@ namespace VHF.CommonMethods
              Elementos.EncontraElementoName(sessionVHF, "Procurar").Click();
              Elementos.EncontraElementoName(sessionVHF, "Sim").Click();
              Elementos.EncontraElementoName(sessionVHF, "Confirmar").Click();*/
+
+            var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(19).SendKeys(dadosHosp.NomeFaker);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(20).SendKeys(dadosHosp.SobrenomeFaker);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(47).Click();
             
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winDocConfirmacao);
 
-            Elementos.EncontraElementosClassName(sessionVHF, "TBitBtn").ElementAt(46).Click();
-            Elementos.EncontraElementosClassName(sessionVHF, "TEdit").ElementAt(19).SendKeys("TEST");
-            Elementos.EncontraElementosClassName(sessionVHF, "TEdit").ElementAt(20).SendKeys("DOIS");
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.docEmail);
 
-            Elementos.EncontraElementosClassName(sessionVHF, "TBitBtn").ElementAt(47).Click();
-            
-            Elementos.EncontraElementoName(sessionVHF, "Documento de Confirmação");
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
-            Elementos.EncontraElementoClassname(sessionVHF, "TEdit").SendKeys("EMAIL");
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TwwDBEdit).ElementAt(7).SendKeys(dadosHosp.EmailFaker);
 
-            Elementos.EncontraElementoName(sessionVHF, "Confirmar").Click();
+            //Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
-            Elementos.EncontraElementosClassName(sessionVHF, "TwwDBEdit").ElementAt(7).SendKeys("teste@gmail.com");
-
-           // Elementos.EncontraElementoName(sessionVHF, "Confirmar").Click();
-
-           // Elementos.EncontraElementoName(sessionVHF, "Sair").Click();
+            //Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
 
        }
 
