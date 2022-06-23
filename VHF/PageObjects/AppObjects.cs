@@ -71,6 +71,7 @@ namespace VHF.PageObjects
         public string winEstada = ("Estada");
         public string winTipoUhEstadia = ("Tipo de UH Estadia");
         public string winTipoUhTarifa = ("Tipo de UH Tarifa");
+        public string winTipoUhQuarto = ("Seleciona UH");
         public string winDocConfirmacao = ("Documento de Confirmação");
 
         #endregion

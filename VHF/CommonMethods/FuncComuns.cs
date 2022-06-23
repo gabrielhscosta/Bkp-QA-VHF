@@ -38,9 +38,7 @@ namespace VHF.CommonMethods
 
         public void InserirNumNoites(string qtdNoites)
         {
-
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(9).SendKeys(qtdNoites);
-
         }
 
         public void InserirDatasEstada(string dataIni, string dataFim)
@@ -64,18 +62,18 @@ namespace VHF.CommonMethods
                 Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
                 Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
             }
+            else if (botao == "numero")
+            {
+                Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhQuarto);
+                Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+                Elementos.EncontraElementoName(sessionVHF, appObjects.btnSim).Click();
+                Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+            }
         }
 
 
        public void CriaReserva()
        {
-             /*Elementos.EncontraElementoName(sessionVHF, "numero").Click();
-             Elementos.EncontraElementoName(sessionVHF, "Seleciona UH");
-             //var tmp = Elementos.EncontraElementosClassName(sessionVHF, "TEdit");
-             Elementos.EncontraElementoName(sessionVHF, "Procurar").Click();
-             Elementos.EncontraElementoName(sessionVHF, "Sim").Click();
-             Elementos.EncontraElementoName(sessionVHF, "Confirmar").Click();*/
-
             var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
@@ -95,7 +93,6 @@ namespace VHF.CommonMethods
             //Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
             //Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
-
        }
 
     }
