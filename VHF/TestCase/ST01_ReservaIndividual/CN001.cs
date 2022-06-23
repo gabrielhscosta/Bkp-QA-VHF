@@ -21,7 +21,9 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.ChamarAtalho("e", "i");
 
-            funcComuns.InserirNumNoites();
+            funcComuns.InserirNumNoites("7");
+
+            funcComuns.PreencherUh("ocupado");
 
             funcComuns.CriaReserva();
         }

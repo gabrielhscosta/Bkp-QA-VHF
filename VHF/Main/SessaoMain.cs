@@ -79,18 +79,12 @@ namespace VHF.Main
 
         public void CN001_Reserva_Individual()
         {
-            try
-            {
-                CN001 reserva = new CN001();
-                reserva.ReservaIndividual();
-            }
-            catch
-            {
-                LoginVHF login = new LoginVHF();
-                CN001 reserva = new CN001();
-                login.ValidaLoginVHF();
-                reserva.ReservaIndividual();
-            }
+       
+            LoginVHF login = new LoginVHF();
+            CN001 reserva = new CN001();
+            login.ValidaLoginVHF();
+            reserva.ReservaIndividual();
+
         }
     }
 }

@@ -36,38 +36,40 @@ namespace VHF.CommonMethods
             }
        }
 
-        public void InserirNumNoites()
+        public void InserirNumNoites(string qtdNoites)
         {
-            var anexEstd = sessionVHF.FindElementByName(appObjects.winEstada);
 
-            var editNoites = anexEstd.FindElementsByClassName(appObjects.TEdit);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(9).SendKeys(qtdNoites);
 
-            var noitesEstd = editNoites.ElementAt(0);
-            new Actions(sessionVHF).MoveToElement(noitesEstd).DoubleClick().Perform();
-            noitesEstd.Clear();
-            noitesEstd.SendKeys(appObjects.numNoites);
         }
 
-        public void InserirDatasEstada()
+        public void InserirDatasEstada(string dataIni, string dataFim)
         {
-            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(2).SendKeys("01/07/2022");
-            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(1).SendKeys("05/07/2022");
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(2).SendKeys(dataIni);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(1).SendKeys(dataFim);
         }
+
+        public void PreencherUh(string botao)
+        {
+            Elementos.EncontraElementoName(sessionVHF, botao).Click();
+            if (botao == "ocupado")
+            {
+                Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhEstadia);
+                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
+                Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+            }
+            else if (botao == "cobrado")
+            {
+                Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhTarifa);
+                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
+                Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+            }
+        }
+
 
        public void CriaReserva()
        {
-            Elementos.EncontraElementoName(sessionVHF, appObjects.btnUhOcupado).Click();
-            Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhEstadia);
-            Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
-            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
-
-
-            Elementos.EncontraElementoName(sessionVHF, appObjects.btnUhCobrado).Click();
-            Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhTarifa);
-            Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
-            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
-
-            /* Elementos.EncontraElementoName(sessionVHF, "numero").Click();
+             /*Elementos.EncontraElementoName(sessionVHF, "numero").Click();
              Elementos.EncontraElementoName(sessionVHF, "Seleciona UH");
              //var tmp = Elementos.EncontraElementosClassName(sessionVHF, "TEdit");
              Elementos.EncontraElementoName(sessionVHF, "Procurar").Click();
