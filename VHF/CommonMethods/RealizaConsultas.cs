@@ -11,6 +11,8 @@ namespace VHF.CommonMethods
 {
     public class RealizaConsultas
     {
+        //Classe para desenvoler as queries a vir usar para validação
+
         public RealizaConsultas()
         {
 
@@ -53,7 +55,5 @@ namespace VHF.CommonMethods
 
             return getReserva;
         }
-
-        //Classe para desenvoler as queries a vir usar para validação
     }
 }

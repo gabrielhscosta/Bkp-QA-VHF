@@ -75,7 +75,6 @@ namespace VHF.CommonMethods
             }
         }
 
-
         public void InserirDadosHosp()
         {
             var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
