@@ -32,6 +32,8 @@ namespace VHF.PageObjects
         public string btnFechar = ("Fechar");
         public string btnUhOcupado = ("ocupado");
         public string btnUhCobrado = ("cobrado");
+        public string btnCidade = ("cidade");
+        public string btnIdioma = ("idioma");
         #endregion
 
 
@@ -72,7 +74,11 @@ namespace VHF.PageObjects
         public string winTipoUhEstadia = ("Tipo de UH Estadia");
         public string winTipoUhTarifa = ("Tipo de UH Tarifa");
         public string winTipoUhQuarto = ("Seleciona UH");
+        public string winDadosPrincipais = ("Dados principais");
         public string winDocConfirmacao = ("Documento de Confirmação");
+        public string winSelecCidade = ("Seleciona cidade");
+        public string winIdiomaHosp = ("Idioma do Hóspede");
+        public string winDocConfirmacaoRes = ("Documento de Confirmação");
 
         #endregion
 
@@ -94,6 +100,7 @@ namespace VHF.PageObjects
         public string titleTelaPrincipalSSD = ("SSD - Sistema de Segurança de Dados");
         public string titleTelaPrincTelefonia = ("Telefonia");
         public string titleTelaPrincipalTS = ("TimeSharing e Multipropriedade");
+        public string txtVisualOrcamento = ("Clique para atualizar os valores do período");
 
         #endregion
 
