@@ -83,7 +83,6 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(19).SendKeys(dadosHosp.NomeFaker);
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(20).SendKeys(dadosHosp.SobrenomeFaker);
 
-
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(18).SendKeys(dadosHosp.EmailFaker);
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(1).SendKeys(dadosHosp.TratamentoHosp);
@@ -147,7 +146,7 @@ namespace VHF.CommonMethods
         }
 
         //Foi inserido uma função para sair da tela de Situação da Reserva e validar a tela principal do VHF
-        //porque se o processo de Sair da tela Sit Res estiver na função acima ele se perde ao armazenar a variável do Ctrl+c - Ctrl+v
+        //porque se o processo de Sair da tela Sit Res estiver na função acima ele se perde ao armazenar a variável do num reserva
         //consequentemente, dará erro na query
         public void ValidarTelaPrincipalVhf()
         {
