@@ -36,6 +36,8 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             realizaConsultas.SelectValidarReservaGerada();
 
+            realizaConsultas.SelectValidarNumeroLinhasOrcamento(7);
+
             funcComuns.ValidarTelaPrincipalVhf();
         }
 
