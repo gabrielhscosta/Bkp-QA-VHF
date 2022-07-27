@@ -76,6 +76,9 @@
     <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
     </Reference>
+    <Reference Include="YamlDotNet, Version=12.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
+      <HintPath>..\packages\YamlDotNet.12.0.0\lib\net47\YamlDotNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonMethods\ConexaoBD.cs" />
@@ -85,6 +88,7 @@
     <Compile Include="CommonMethods\HospedeFake.cs" />
     <Compile Include="CommonMethods\RealizaConsultas.cs" />
     <Compile Include="CommonMethods\RegistroBase.cs" />
+    <Compile Include="DadosYaml\ImportaYaml.cs" />
     <Compile Include="Main\SessaoMain.cs" />
     <Compile Include="PageObjects\AppObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DadosYaml\tarifa.yml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

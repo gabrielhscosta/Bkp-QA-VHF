@@ -1,0 +1,96 @@
+﻿tarifa: 
+    - descricao: BALCAO 2021-60
+      valorUHs:
+        - uh: stnd
+          valorUmPax: 609
+          valorDoisPax: 609
+          valorTresPax:
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional: 150
+          valorFixoCri1: 150
+          valorFixoCri2: 220
+        - uh: suit
+          valorUmPax: 947
+          valorDoisPax: 947
+          valorTresPax: 980
+          valorQuatroPax: 990
+          valorCincoPax:  999
+          valorPaxAdicional: 220
+          valorFixoCri1: 150
+          valorFixoCri2: 220
+        - uh: frua
+          valorUmPax: 709
+          valorDoisPax: 709
+          valorTresPax: 919
+          valorQuatroPax: 970
+          valorCincoPax:  
+          valorPaxAdicional: 220
+          valorFixoCri1: 150
+          valorFixoCri2: 220
+        - uh: anx2
+          valorUmPax: 315
+          valorDoisPax: 315
+          valorTresPax: 473
+          valorQuatroPax: 630
+          valorCincoPax:
+          valorPaxAdicional:
+          valorFixoCri1:
+          valorFixoCri2:
+        - uh: ans1
+          valorUmPax: 525
+          valorDoisPax: 525
+          valorTresPax: 683
+          valorQuatroPax: 735
+          valorCincoPax: 893
+          valorPaxAdicional: 158
+          valorFixoCri1: 150
+          valorFixoCri2: 220
+
+    - descricao: TESTE
+      valorUHs:
+        - uh: stnd
+          valorUmPax: 609
+          valorDoisPax: 609
+          valorTresPax:
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional: 150
+          valorFixoCri1: 150
+          valorFixoCri2: 220
+        - uh: suit
+          valorUmPax: 947
+          valorDoisPax: 947
+          valorTresPax: 980
+          valorQuatroPax: 990
+          valorCincoPax:  999
+          valorPaxAdicional: 220
+          valorFixoCri1: 150
+          valorFixoCri2: 220
+        - uh: frua
+          valorUmPax: 709
+          valorDoisPax: 709
+          valorTresPax: 919
+          valorQuatroPax: 970
+          valorCincoPax:  
+          valorPaxAdicional: 220
+          valorFixoCri1: 150
+          valorFixoCri2: 220
+        - uh: anx2
+          valorUmPax: 315
+          valorDoisPax: 315
+          valorTresPax: 473
+          valorQuatroPax: 630
+          valorCincoPax:
+          valorPaxAdicional:
+          valorFixoCri1:
+          valorFixoCri2:
+        - uh: ans1
+          valorUmPax: 525
+          valorDoisPax: 525
+          valorTresPax: 683
+          valorQuatroPax: 735
+          valorCincoPax: 893
+          valorPaxAdicional: 158
+          valorFixoCri1: 150
+          valorFixoCri2: 220    
