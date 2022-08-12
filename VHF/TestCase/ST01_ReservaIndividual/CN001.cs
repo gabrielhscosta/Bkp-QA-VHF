@@ -34,6 +34,8 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.ValidarSituacaoRes();
 
+            //realizaConsultas.SelectValidarValorOrcamento();
+
             realizaConsultas.SelectValidarReservaGerada();
 
             realizaConsultas.SelectValidarNumeroLinhasOrcamento(7);

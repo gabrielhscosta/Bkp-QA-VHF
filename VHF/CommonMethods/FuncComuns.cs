@@ -9,6 +9,7 @@ using VHF.PageObjects;
 using OpenQA.Selenium.Interactions;
 using System.Diagnostics;
 using OpenQA.Selenium.Appium;
+using System.Threading;
 
 namespace VHF.CommonMethods
 {
@@ -128,6 +129,13 @@ namespace VHF.CommonMethods
 
         public void ValidarSituacaoRes()
         {
+            Elementos.EncontraElementoName(sessionVHF, "Confirmação");
+            Elementos.EncontraElementoName(sessionVHF, "Sim").Click();
+
+            Thread.Sleep(90000);
+
+            Elementos.EncontraElementoName(sessionVHF, "Situação da Reserva");
+
             Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
 
             var winSitRes = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));

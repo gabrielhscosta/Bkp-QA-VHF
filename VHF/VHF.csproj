@@ -88,6 +88,7 @@
     <Compile Include="CommonMethods\HospedeFake.cs" />
     <Compile Include="CommonMethods\RealizaConsultas.cs" />
     <Compile Include="CommonMethods\RegistroBase.cs" />
+    <Compile Include="CommonMethods\Validacoes.cs" />
     <Compile Include="DadosYaml\ImportaYaml.cs" />
     <Compile Include="Main\SessaoMain.cs" />
     <Compile Include="PageObjects\AppObjects.cs" />

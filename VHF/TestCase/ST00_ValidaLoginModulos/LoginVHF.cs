@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using OpenQA.Selenium;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading;
 
 namespace VHF.TestCase.ST00_ValidaLoginModulos
 {
@@ -40,16 +41,17 @@ namespace VHF.TestCase.ST00_ValidaLoginModulos
 
             #region Seleciona Empresa
 
-            Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).Clear();
-            Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(appObjectsVhf.empresaSys);
-            Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(Keys.Tab);
+            //Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).Clear();
+            //Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(appObjectsVhf.empresaSys);
+            //Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(Keys.Tab);
             Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.btnConfirmar).Click();
 
             #endregion
 
             #region Janela Atenção
 
-            Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.txtAlertAtencao);
+            Thread.Sleep(90000);
+            //Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.txtAlertAtencao);
             Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.btnOK).Click();
 
             #endregion
