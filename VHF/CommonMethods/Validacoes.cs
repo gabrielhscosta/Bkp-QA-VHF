@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,18 @@ namespace VHF.CommonMethods
 
         RealizaConsultas realizaConsultas = new RealizaConsultas();
 
+        public void ValidaReservaGerada()
+        {
+            string numReserva = realizaConsultas.SelectValidarReservaGerada();
+            Assert.AreEqual(FuncComuns.numRes.Text + ",00", numReserva);
+   
+        }
+
+        public void ValidaNumeroLinhaDoOrc(int qtdNoites)
+        {
+            int linhasOrc = realizaConsultas.SelectValidarNumeroLinhasOrcamento();
+            Assert.AreEqual(qtdNoites, linhasOrc);
+        }
 
         public void ValidaOrcamento(string UH, int qtdPax)
         {

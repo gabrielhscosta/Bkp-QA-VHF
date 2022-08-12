@@ -46,17 +46,10 @@ namespace VHF.CommonMethods
                 ex.Message.ToString();
             }
 
-            if (getReserva != null)
-            {
-                Assert.AreEqual(getReserva, FuncComuns.numRes.Text + ",00");
-
-                Console.WriteLine("\nReserva " + FuncComuns.numRes.Text + " validada no BD com sucesso");
-            }
-
             return getReserva;
         }
 
-        public int SelectValidarNumeroLinhasOrcamento(int qtdNoites)
+        public int SelectValidarNumeroLinhasOrcamento()
         {
             SqlCommand cmd1 = new SqlCommand();
 
@@ -74,16 +67,6 @@ namespace VHF.CommonMethods
             catch (SqlException ex)
             {
                 ex.Message.ToString();
-            }
-
-            if (lineOrc == qtdNoites)
-            {
-                Console.WriteLine("\nOrçamento gerado de acordo com a quantidade de Pernoites da Reserva");
-            }
-
-            else
-            {
-                throw new AccessViolationException("\nErro na formação do Orçamento Reserva.");
             }
 
             return lineOrc;
