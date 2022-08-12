@@ -80,9 +80,9 @@ namespace VHF.Main
         public void CN001_Reserva_Individual()
         {
        
-         //   LoginVHF login = new LoginVHF();
+            LoginVHF login = new LoginVHF();
             CN001 reserva = new CN001();
-           // login.ValidaLoginVHF();
+            login.ValidaLoginVHF();
             reserva.ReservaIndividual();
 
         }

@@ -18,7 +18,8 @@ namespace VHF.TestCase.ST01_ReservaIndividual
         public void ReservaIndividual()
         {
             FuncComuns funcComuns = new FuncComuns();
-            RealizaConsultas realizaConsultas = new RealizaConsultas();
+            Validacoes validacoes = new Validacoes();
+
 
             funcComuns.ChamarAtalho("e", "i");
 
@@ -34,13 +35,12 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.ValidarSituacaoRes();
 
-            //realizaConsultas.SelectValidarValorOrcamento();
+            validacoes.ValidaReservaGerada();
 
-            realizaConsultas.SelectValidarReservaGerada();
+            validacoes.ValidaNumeroLinhaDoOrc(7);
 
-            realizaConsultas.SelectValidarNumeroLinhasOrcamento(7);
+            //validacoes.ValidaOrcamento();
 
-            funcComuns.ValidarTelaPrincipalVhf();
         }
 
     }
