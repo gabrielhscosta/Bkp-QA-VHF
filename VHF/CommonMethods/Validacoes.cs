@@ -32,8 +32,15 @@ namespace VHF.CommonMethods
 
         public void ValidaOrcamento(string UH, int qtdPax)
         {
-            List<Dictionary<string, object>> lista = realizaConsultas.SelectValidarValorOrcamento();
+            List<TarifaConsulta> lista = realizaConsultas.SelectValidarValorOrcamento();
 
+            foreach (TarifaConsulta t in lista)
+            {
+               // Assert.AreEqual(,t.Descricao);
+               // Assert.AreEqual(, t.Valor);
+               // Assert.AreEqual(, t.ValorTarifa);
+            }
+            
         }
 
     }

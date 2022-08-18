@@ -39,7 +39,7 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             validacoes.ValidaNumeroLinhaDoOrc(7);
 
-            //validacoes.ValidaOrcamento();
+            validacoes.ValidaOrcamento("stnd",1);
 
         }
 
