@@ -32,7 +32,7 @@ namespace VHF.CommonMethods
                 " from RESERVASFRONT" +
                 " where statusReserva = 1" +
                 " and idHotel = 1" +
-                " and numReserva = 1192930" +
+                " and numReserva = " + FuncComuns.numRes.Text +
                 " order by numReserva desc";
 
             try
@@ -55,7 +55,7 @@ namespace VHF.CommonMethods
 
             int lineOrc = 0;
             
-            cmd1.CommandText = "select COUNT(*) from reservasfront r, ORCAMENTORESERVA oc where r.idhotel = 1 and r.numreserva = 1192930 and r.idhotel = oc.idhotel and r.idreservasfront = oc.idreservasfront";
+            cmd1.CommandText = "select COUNT(*) from reservasfront r, ORCAMENTORESERVA oc where r.idhotel = 1 and r.numreserva =  " + FuncComuns.numRes.Text + " and r.idhotel = oc.idhotel and r.idreservasfront = oc.idreservasfront";
                 
             try
             {
@@ -80,7 +80,7 @@ namespace VHF.CommonMethods
 
             List<TarifaConsulta> lista = null;
 
-            cmd1.CommandText = "select t.Descricao, oc.VALOR, oc.VALORTARIFA from RESERVASFRONT r, ORCAMENTORESERVA oc, TARIFAHOTEL t where r.idhotel = 1 and r.numreserva = 1192930 and r.idhotel = oc.idhotel and r.idreservasfront = oc.idreservasfront and oc.IdHotel = t.IdHotel and oc.idTarifa = t.idTarifa order by data asc";
+            cmd1.CommandText = "select t.Descricao, oc.VALOR, oc.VALORTARIFA from RESERVASFRONT r, ORCAMENTORESERVA oc, TARIFAHOTEL t where r.idhotel = 1 and r.numreserva = " + FuncComuns.numRes.Text + " and r.idhotel = oc.idhotel and r.idreservasfront = oc.idreservasfront and oc.IdHotel = t.IdHotel and oc.idTarifa = t.idTarifa order by data asc";
 
             try
             {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VHF.DadosYaml;
 
 namespace VHF.CommonMethods
 {
@@ -34,13 +35,15 @@ namespace VHF.CommonMethods
         {
             List<TarifaConsulta> lista = realizaConsultas.SelectValidarValorOrcamento();
 
+            DeserializedObject dadosYaml = ImportaYaml.Deserialize(@"C:\Users\jose.xavier\source\repos\QA-VHF\VHF\DadosYaml\tarifa.yml");
+
             foreach (TarifaConsulta t in lista)
             {
-               // Assert.AreEqual(,t.Descricao);
-               // Assert.AreEqual(, t.Valor);
-               // Assert.AreEqual(, t.ValorTarifa);
+                Assert.AreEqual(dadosYaml.tarifa[0].descricao,t.Descricao);
+                Assert.AreEqual(dadosYaml.tarifa[0].valorUHs[0].valorUmPax, t.Valor);
+                Assert.AreEqual(dadosYaml.tarifa[0].valorUHs[0].valorUmPax, t.ValorTarifa);
             }
-            
+
         }
 
     }
