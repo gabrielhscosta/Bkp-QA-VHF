@@ -26,7 +26,7 @@ namespace VHF.CommonMethods
             
             Assert.AreEqual(FuncComuns.numRes.Text + ",00", numReserva);
 
-            Console.WriteLine("Get da reserva no sistema {0}\r\nResultado da consulta no bd {1}", FuncComuns.numRes.Text + ",00", numReserva);
+            Console.WriteLine("\nGet da reserva no sistema (Tela Situação da reserva): {0}\r\nResultado da consulta no banco de dados: {1}", FuncComuns.numRes.Text + ",00", numReserva);
         }
 
         public void ValidaNumeroLinhaDoOrc(int qtdNoites)
@@ -34,7 +34,7 @@ namespace VHF.CommonMethods
             int linhasOrc = realizaConsultas.SelectValidarNumeroLinhasOrcamento();
             Assert.AreEqual(qtdNoites, linhasOrc);
 
-            Console.WriteLine("Qtd noites da reserva {0}\r\nLinhas orçamento {1}", qtdNoites, linhasOrc);
+            Console.WriteLine("\nQtd noites da reserva: {0}\r\nLinhas orçamento: {1}", qtdNoites, linhasOrc);
         }
 
         public void ValidaOrcamento(string UH, int qtdPax)
@@ -50,7 +50,7 @@ namespace VHF.CommonMethods
                 Assert.AreEqual(dadosYaml.tarifa[0].valorUHs[0].valorUmPax, t.ValorTarifa);
             }
 
-            Console.WriteLine("Valor tarifa {0}\r\nValor do orçamento no bd {1}", dadosYaml.tarifa[0].valorUHs[0].valorUmPax, lista[0].Valor);
+            Console.WriteLine("\nValor da tarifa para 1 pax na categoria STDN: {0}\r\nValor do orçamento no banco de dados: {1}", dadosYaml.tarifa[0].valorUHs[0].valorUmPax, lista[0].Valor);
         }
 
     }
