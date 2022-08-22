@@ -41,9 +41,9 @@ namespace VHF.TestCase.ST00_ValidaLoginModulos
 
             #region Seleciona Empresa
 
-            //Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).Clear();
-            //Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(appObjectsVhf.empresaSys);
-            //Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(Keys.Tab);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).Clear();
+            Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(appObjectsVhf.empresaSys);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(Keys.Tab);
             Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.btnConfirmar).Click();
 
             #endregion

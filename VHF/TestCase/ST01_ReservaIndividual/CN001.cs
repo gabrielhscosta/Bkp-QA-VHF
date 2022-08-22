@@ -41,6 +41,8 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             validacoes.ValidaOrcamento("stnd",1);
 
+            funcComuns.ValidarTelaPrincipalVhf();
+
         }
 
     }

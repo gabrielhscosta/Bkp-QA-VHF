@@ -58,13 +58,13 @@ namespace VHF.CommonMethods
             if (botao == "ocupado")
             {
                 Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhEstadia);
-                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
+                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhStnd);
                 Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
             }
             else if (botao == "cobrado")
             {
                 Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhTarifa);
-                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
+                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhStnd);
                 Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
             }
             else if (botao == "numero")
@@ -128,14 +128,7 @@ namespace VHF.CommonMethods
         }
 
         public void ValidarSituacaoRes()
-        {
-            Elementos.EncontraElementoName(sessionVHF, "Confirmação");
-            Elementos.EncontraElementoName(sessionVHF, "Sim").Click();
-
-            Thread.Sleep(90000);
-
-            Elementos.EncontraElementoName(sessionVHF, "Situação da Reserva");
-
+        {           
             Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
 
             var winSitRes = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
@@ -153,9 +146,6 @@ namespace VHF.CommonMethods
             Console.WriteLine("Numero de Reserva Gerado: " + numRes.Text);
         }
 
-        //Foi inserido uma função para sair da tela de Situação da Reserva e validar a tela principal do VHF
-        //porque se o processo de Sair da tela Sit Res estiver na função acima ele se perde ao armazenar a variável do num reserva
-        //consequentemente, dará erro na query
         public void ValidarTelaPrincipalVhf()
         {
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
