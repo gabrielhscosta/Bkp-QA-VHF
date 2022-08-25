@@ -58,7 +58,7 @@ namespace VHF.CommonMethods
             if (botao == "ocupado")
             {
                 Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhEstadia);
-                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
+                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhStnd);
                 Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
             }
             else if (botao == "cobrado")
@@ -76,11 +76,14 @@ namespace VHF.CommonMethods
             }
         }
 
-        public void InserirDadosHosp()
+        public void InserirDadosHosp(string faixaEtaria = "adulto")
         {
             var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
+
+            
+
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(19).SendKeys(dadosHosp.NomeFaker);
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(20).SendKeys(dadosHosp.SobrenomeFaker);
 
@@ -88,7 +91,18 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(1).SendKeys(dadosHosp.TratamentoHosp);
 
-            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(3).SendKeys(dadosHosp.DtNascFaker);
+            if (faixaEtaria == "crianca")
+            {
+                Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(0).Clear();
+                Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(0).SendKeys("Crianca 1");
+                Elementos.EncontraElementoName(sessionVHF, "Menor ou incapaz").Click();
+                Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(3).SendKeys("20/06/2020");
+            }
+            else
+            {
+                Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(3).SendKeys(dadosHosp.DtNascFaker);
+
+            }
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnCidade).Click();
             Elementos.EncontraElementoName(sessionVHF, appObjects.winSelecCidade);
@@ -105,6 +119,16 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
+        }
+
+        public void InserirMaisHospedes(string adulto, string cri1, string cri2)
+        {
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TDBEdit).ElementAt(2).SendKeys(adulto);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TDBEdit).ElementAt(1).SendKeys(cri1);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TDBEdit).ElementAt(0).SendKeys(cri2);
+
+            Elementos.EncontraElementoName(sessionVHF, "Confirmação");
+            Elementos.EncontraElementoName(sessionVHF, "Sim").Click();
         }
 
         public void InserirDocConfirmacao()
@@ -129,8 +153,6 @@ namespace VHF.CommonMethods
 
         public void ValidarSituacaoRes()
         {
-            Elementos.EncontraElementoName(sessionVHF, "Confirmação");
-            Elementos.EncontraElementoName(sessionVHF, "Sim").Click();
 
             Thread.Sleep(90000);
 
