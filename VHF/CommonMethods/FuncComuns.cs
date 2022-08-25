@@ -58,7 +58,7 @@ namespace VHF.CommonMethods
             if (botao == "ocupado")
             {
                 Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhEstadia);
-                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhStnd);
+                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
                 Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
             }
             else if (botao == "cobrado")
@@ -175,9 +175,6 @@ namespace VHF.CommonMethods
             Console.WriteLine("Numero de Reserva Gerado: " + numRes.Text);
         }
 
-        //Foi inserido uma função para sair da tela de Situação da Reserva e validar a tela principal do VHF
-        //porque se o processo de Sair da tela Sit Res estiver na função acima ele se perde ao armazenar a variável do num reserva
-        //consequentemente, dará erro na query
         public void ValidarTelaPrincipalVhf()
         {
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
