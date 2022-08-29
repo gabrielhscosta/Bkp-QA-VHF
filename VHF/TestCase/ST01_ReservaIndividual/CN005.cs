@@ -31,7 +31,7 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.InserirDocConfirmacao();
 
-            funcComuns.InserirSegmentoHospede();
+            funcComuns.InserirSegmentoHospede("01.04 - Particular Uso da Casa");
 
             funcComuns.InserirMotivoDeDesconto();
 

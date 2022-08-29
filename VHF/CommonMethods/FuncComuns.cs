@@ -134,10 +134,10 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(47).Click();
         }
 
-        public void InserirSegmentoHospede()
+        public void InserirSegmentoHospede(string tipoDeSegmento)
         {
             Elementos.EncontraElementoName(sessionVHF, "segmento").Click();
-            Elementos.EncontraElementoName(sessionVHF, "01.04 - Particular Uso da Casa").Click();
+            Elementos.EncontraElementoName(sessionVHF, tipoDeSegmento).Click();
         }
 
         public void InserirMotivoDeDesconto()
