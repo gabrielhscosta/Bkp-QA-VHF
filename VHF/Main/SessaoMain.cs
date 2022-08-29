@@ -89,6 +89,17 @@ namespace VHF.Main
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
 
+        public void CN005_Reserva_Individual_Com_Hospede_Uso_Da_Casa()
+        {
+            LoginVHF login = new LoginVHF();
+            CN005 reserva = new CN005();
+            login.ValidaLoginVHF();
+            reserva.ReservaIndividualComHospedeUsoDaCasa();
+
+        }
+
+        [TestMethod, TestCategory("1 - Reserva Individual")]
+
         public void CN011_Reserva_Individual_Mais_De_Um_Hospede()
         {
             LoginVHF login = new LoginVHF();
@@ -108,5 +119,6 @@ namespace VHF.Main
             reserva.ReservaIndividualMaisDeUmHospedeComCrianca();
 
         }
+
     }
 }

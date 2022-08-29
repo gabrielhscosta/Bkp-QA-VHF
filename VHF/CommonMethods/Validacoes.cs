@@ -73,5 +73,21 @@ namespace VHF.CommonMethods
 
         }
 
+        public void ValidaOrcamentoCortesiaUsoDaCasa(string tarifa = "BALCAO 2021-60")
+        {
+            List<TarifaConsulta> lista = realizaConsultas.SelectValidarValorOrcamento();
+
+            DeserializedObject dadosYaml = ImportaYaml.Deserialize(@"..\..\DadosYaml\tarifa.yml");
+
+            int indice = dadosYaml.tarifa.FindIndex(tmp => tmp.descricao.Equals(tarifa));
+
+            foreach (TarifaConsulta t in lista)
+            {
+                Assert.AreEqual(dadosYaml.tarifa[indice].descricao, t.Descricao);
+                Assert.AreEqual(0, t.Valor);
+            }
+
+        }
+
     }
 }

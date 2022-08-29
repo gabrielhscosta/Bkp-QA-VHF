@@ -96,6 +96,7 @@
     <Compile Include="TestCase\ST01_ReservaIndividual\CN001.cs" />
     <Compile Include="TestCase\ST00_ValidaLoginModulos\LoginVHF.cs" />
     <Compile Include="TestCase\ST00_ValidaLoginModulos\LoginVHFCaixa.cs" />
+    <Compile Include="TestCase\ST01_ReservaIndividual\CN005.cs" />
     <Compile Include="TestCase\ST01_ReservaIndividual\CN011.cs" />
     <Compile Include="TestCase\ST01_ReservaIndividual\CN012.cs" />
   </ItemGroup>

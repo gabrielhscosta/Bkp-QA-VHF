@@ -76,7 +76,7 @@ namespace VHF.CommonMethods
             }
         }
 
-        public void InserirDadosHosp(string faixaEtaria = "adulto")
+        public void InserirDadosHosp(string faixaEtaria = "adulto",string tipoDeHospede = "Particular")
         {
             var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
 
@@ -104,6 +104,17 @@ namespace VHF.CommonMethods
 
             }
 
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(2).Clear();
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(2).SendKeys(tipoDeHospede);
+
+            if (tipoDeHospede == "Uso da Casa")
+            {
+                Elementos.EncontraElementoName(sessionVHF, "funcionario").Click();
+                Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(0).SendKeys("CAMAREIRA 1");
+                Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+                Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+            }
+
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnCidade).Click();
             Elementos.EncontraElementoName(sessionVHF, appObjects.winSelecCidade);
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(6).SendKeys(dadosHosp.CidadeFaker);
@@ -118,7 +129,24 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
-            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
+            var tmp = Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(47).Click();
+        }
+
+        public void InserirSegmentoHospede()
+        {
+            Elementos.EncontraElementoName(sessionVHF, "segmento").Click();
+            Elementos.EncontraElementoName(sessionVHF, "01.04 - Particular Uso da Casa").Click();
+        }
+
+        public void InserirMotivoDeDesconto()
+        {
+            Elementos.EncontraElementoName(sessionVHF, "Dados complementares").Click();
+            Elementos.EncontraElementoName(sessionVHF, "motivo").Click();
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(0).SendKeys("AUTORIZADO PELA GERENCIA");
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+            Elementos.EncontraElementoName(sessionVHF, "Dados principais").Click();
         }
 
         public void InserirMaisHospedes(string adulto, string cri1, string cri2)
