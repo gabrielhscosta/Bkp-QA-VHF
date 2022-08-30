@@ -69,6 +69,18 @@ namespace VHF.CommonMethods
             return uiTarget;
         }
 
+        public static IReadOnlyCollection<WindowsElement> EncontraElementosName(
+           this WindowsDriver<WindowsElement> acessarModulo,
+           string name)
+        {
+            IReadOnlyCollection<WindowsElement> elementos = null;
+            WebDriverWait waitForMe = new WebDriverWait(acessarModulo, TimeSpan.FromSeconds(120));
+            acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.First());
+            elementos = acessarModulo.FindElementsByName(name);
+            waitForMe.Until(pred => elementos.Count() != 0);
+            return elementos;
+        }
+
         public static WindowsElement EncontraElementoClassname(
            this WindowsDriver<WindowsElement> sessionFiscallFlex,
            string className)

@@ -134,6 +134,49 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(47).Click();
         }
 
+        public void SelecionarEmpresa()
+        {
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winDadosPrincipais);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(44).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winSelecCliente);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(10).SendKeys(appObjects.docCliente);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+        }
+
+        public void SelecionarContrato()
+        {
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winDadosPrincipais);
+
+            Elementos.EncontraElementosName(sessionVHF, appObjects.btnContrato).ElementAt(2).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winContratoCliente);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnOK).Click();
+        }
+
+        public void BuscarHospComHistoricoEstada()
+        {
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnDocHosp).Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winSelecDocHosp);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(2).SendKeys(appObjects.docHospEstada);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
+
+        }
+
         public void InserirSegmentoHospede(string tipoDeSegmento)
         {
             Elementos.EncontraElementoName(sessionVHF, "segmento").Click();
