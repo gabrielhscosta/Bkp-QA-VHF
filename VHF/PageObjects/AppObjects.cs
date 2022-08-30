@@ -79,6 +79,7 @@ namespace VHF.PageObjects
         public string winSelecCidade = ("Seleciona cidade");
         public string winIdiomaHosp = ("Idioma do Hóspede");
         public string winDocConfirmacaoRes = ("Documento de Confirmação");
+        public string winSitReserva = ("Situação da Reserva");
 
         #endregion
 

@@ -134,9 +134,9 @@ namespace VHF.CommonMethods
             var winSitRes = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
             winSitRes.Title.ToString();
 
-            var sitRes = sessionVHF.FindElementByName("Situação da Reserva");
+            var sitRes = sessionVHF.FindElementByName(appObjects.winSitReserva);
 
-            var editSitRes = sitRes.FindElementsByClassName("TEdit");
+            var editSitRes = sitRes.FindElementsByClassName(appObjects.TEdit);
 
             numRes = editSitRes.ElementAt(8);
             new Actions(sessionVHF).MoveToElement(numRes).DoubleClick().Perform();
