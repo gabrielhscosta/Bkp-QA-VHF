@@ -58,13 +58,13 @@ namespace VHF.CommonMethods
             if (botao == "ocupado")
             {
                 Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhEstadia);
-                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhStnd);
+                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
                 Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
             }
             else if (botao == "cobrado")
             {
                 Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhTarifa);
-                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhStnd);
+                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
                 Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
             }
             else if (botao == "numero")
@@ -76,11 +76,14 @@ namespace VHF.CommonMethods
             }
         }
 
-        public void InserirDadosHosp()
+        public void InserirDadosHosp(string faixaEtaria = "adulto",string tipoDeHospede = "Particular")
         {
             var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
+
+            
+
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(19).SendKeys(dadosHosp.NomeFaker);
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(20).SendKeys(dadosHosp.SobrenomeFaker);
 
@@ -88,7 +91,29 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(1).SendKeys(dadosHosp.TratamentoHosp);
 
-            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(3).SendKeys(dadosHosp.DtNascFaker);
+            if (faixaEtaria == "crianca")
+            {
+                Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(0).Clear();
+                Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(0).SendKeys("Crianca 1");
+                Elementos.EncontraElementoName(sessionVHF, "Menor ou incapaz").Click();
+                Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(3).SendKeys("20/06/2020");
+            }
+            else
+            {
+                Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(3).SendKeys(dadosHosp.DtNascFaker);
+
+            }
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(2).Clear();
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(2).SendKeys(tipoDeHospede);
+
+            if (tipoDeHospede == "Uso da Casa")
+            {
+                Elementos.EncontraElementoName(sessionVHF, "funcionario").Click();
+                Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(0).SendKeys("CAMAREIRA 1");
+                Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+                Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+            }
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnCidade).Click();
             Elementos.EncontraElementoName(sessionVHF, appObjects.winSelecCidade);
@@ -104,7 +129,34 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
-            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
+            var tmp = Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(47).Click();
+        }
+
+        public void InserirSegmentoHospede(string tipoDeSegmento)
+        {
+            Elementos.EncontraElementoName(sessionVHF, "segmento").Click();
+            Elementos.EncontraElementoName(sessionVHF, tipoDeSegmento).Click();
+        }
+
+        public void InserirMotivoDeDesconto()
+        {
+            Elementos.EncontraElementoName(sessionVHF, "Dados complementares").Click();
+            Elementos.EncontraElementoName(sessionVHF, "motivo").Click();
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(0).SendKeys("AUTORIZADO PELA GERENCIA");
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+            Elementos.EncontraElementoName(sessionVHF, "Dados principais").Click();
+        }
+
+        public void InserirMaisHospedes(string adulto, string cri1, string cri2)
+        {
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TDBEdit).ElementAt(2).SendKeys(adulto);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TDBEdit).ElementAt(1).SendKeys(cri1);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TDBEdit).ElementAt(0).SendKeys(cri2);
+
+            Elementos.EncontraElementoName(sessionVHF, "Confirmação");
+            Elementos.EncontraElementoName(sessionVHF, "Sim").Click();
         }
 
         public void InserirDocConfirmacao()
@@ -128,7 +180,12 @@ namespace VHF.CommonMethods
         }
 
         public void ValidarSituacaoRes()
-        {           
+        {
+
+            Thread.Sleep(90000);
+
+            Elementos.EncontraElementoName(sessionVHF, "Situação da Reserva");
+
             Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
 
             var winSitRes = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));

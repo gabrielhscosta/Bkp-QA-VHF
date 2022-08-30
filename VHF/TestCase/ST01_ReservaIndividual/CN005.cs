@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace VHF.TestCase.ST01_ReservaIndividual
 {
-    public class CN001 : SessaoMain
+    public class CN005 : SessaoMain
     {
-        public CN001()
+        public CN005()
         {
 
         }
 
-        public void ReservaIndividual()
+        public void ReservaIndividualComHospedeUsoDaCasa()
         {
             FuncComuns funcComuns = new FuncComuns();
             Validacoes validacoes = new Validacoes();
@@ -23,13 +23,17 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.ChamarAtalho("e", "i");
 
-            funcComuns.InserirNumNoites("7");
+            funcComuns.InserirNumNoites("5");
 
             funcComuns.PreencherUh("ocupado");
 
-            funcComuns.InserirDadosHosp();
+            funcComuns.InserirDadosHosp(tipoDeHospede:"Uso da Casa");
 
             funcComuns.InserirDocConfirmacao();
+
+            funcComuns.InserirSegmentoHospede("01.04 - Particular Uso da Casa");
+
+            funcComuns.InserirMotivoDeDesconto();
 
             funcComuns.VisualizarOrcamentoRes();
 
@@ -37,12 +41,11 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             validacoes.ValidaReservaGerada();
 
-            validacoes.ValidaNumeroLinhaDoOrc(7);
+            validacoes.ValidaNumeroLinhaDoOrc(5);
 
-            validacoes.ValidaOrcamento("stnd", 1, 0, 0);
+            validacoes.ValidaOrcamentoCortesiaUsoDaCasa();
 
             funcComuns.ValidarTelaPrincipalVhf();
-
         }
 
     }
