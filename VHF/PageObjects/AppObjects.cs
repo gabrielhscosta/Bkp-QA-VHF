@@ -34,6 +34,9 @@ namespace VHF.PageObjects
         public string btnUhCobrado = ("cobrado");
         public string btnCidade = ("cidade");
         public string btnIdioma = ("idioma");
+        public string btnDocHosp = ("documentohospede");
+        public string btnContrato = ("contrato");
+
         #endregion
 
 
@@ -79,6 +82,10 @@ namespace VHF.PageObjects
         public string winSelecCidade = ("Seleciona cidade");
         public string winIdiomaHosp = ("Idioma do Hóspede");
         public string winDocConfirmacaoRes = ("Documento de Confirmação");
+        public string winSelecDocHosp = ("Seleciona documento do hóspede");
+        public string winSitReserva = ("Situação da Reserva");
+        public string winSelecCliente = ("Seleciona");
+        public string winContratoCliente = ("Contratos da Empresa");
 
         #endregion
 
@@ -112,6 +119,8 @@ namespace VHF.PageObjects
         public string categUhSuite = ("SUITE MASTER");
         public string idiomaHosp = ("Portugues");
         public string docEmail = ("EM");
+        public string docCliente = ("77048338000148");
+        public string docHospEstada = ("88180094600");
 
         #endregion
 

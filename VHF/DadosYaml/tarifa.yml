@@ -93,4 +93,94 @@
           valorCincoPax: 893
           valorPaxAdicional: 158
           valorFixoCri1: 150
-          valorFixoCri2: 220    
+          valorFixoCri2: 220
+
+    - descricao: AUTO NET 2022-60
+      valorUHs:
+        - uh: stnd
+          valorUmPax: 434
+          valorDoisPax: 510
+          valorTresPax:
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional: 200
+          valorFixoCri1: 200
+          valorFixoCri2: 210
+        - uh: suit
+          valorUmPax: 867
+          valorDoisPax: 925
+          valorTresPax: 982
+          valorQuatroPax: 1040
+          valorCincoPax:
+          valorPaxAdicional: 405
+          valorFixoCri1: 405
+          valorFixoCri2: 405
+        - uh: frua
+          valorUmPax: 499
+          valorDoisPax: 499
+          valorTresPax: 605
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional: 221
+          valorFixoCri1: 221
+          valorFixoCri2: 221
+
+    - descricao: AUTO BAR 2020-60
+      valorUHs:
+        - uh: stnd
+          valorUmPax: 464
+          valorDoisPax: 610
+          valorTresPax:
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional: 220
+          valorFixoCri1: 220
+          valorFixoCri2: 250
+        - uh: suit
+          valorUmPax: 927
+          valorDoisPax: 988
+          valorTresPax: 1050
+          valorQuatroPax: 1112
+          valorCincoPax:
+          valorPaxAdicional: 433
+          valorFixoCri1: 433
+          valorFixoCri2: 433
+        - uh: frua
+          valorUmPax: 534
+          valorDoisPax: 534
+          valorTresPax: 647
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional: 236
+          valorFixoCri1: 236
+          valorFixoCri2: 236
+
+    - descricao: AUTO ACORDO 2022-60
+      valorUHs:
+        - uh: stnd
+          valorUmPax: 523
+          valorDoisPax: 586
+          valorTresPax:
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional: 330
+          valorFixoCri1: 330
+          valorFixoCri2: 350
+        - uh: suit
+          valorUmPax: 1045
+          valorDoisPax: 1114
+          valorTresPax: 1184
+          valorQuatroPax: 1254
+          valorCincoPax:
+          valorPaxAdicional: 488
+          valorFixoCri1: 488
+          valorFixoCri2: 488
+        - uh: frua
+          valorUmPax: 602
+          valorDoisPax: 602
+          valorTresPax: 730
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional: 266
+          valorFixoCri1: 266
+          valorFixoCri2: 266
