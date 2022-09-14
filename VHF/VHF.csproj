@@ -96,9 +96,13 @@
     <Compile Include="TestCase\ST01_ReservaIndividual\CN001.cs" />
     <Compile Include="TestCase\ST00_ValidaLoginModulos\LoginVHF.cs" />
     <Compile Include="TestCase\ST00_ValidaLoginModulos\LoginVHFCaixa.cs" />
+    <Compile Include="TestCase\ST01_ReservaIndividual\CN004.cs" />
     <Compile Include="TestCase\ST01_ReservaIndividual\CN005.cs" />
     <Compile Include="TestCase\ST01_ReservaIndividual\CN011.cs" />
     <Compile Include="TestCase\ST01_ReservaIndividual\CN012.cs" />
+    <Compile Include="TestCase\ST02_OrcamentoReserva\CN020.cs" />
+    <Compile Include="TestCase\ST02_OrcamentoReserva\CN021.cs" />
+    <Compile Include="TestCase\ST02_OrcamentoReserva\CN022.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

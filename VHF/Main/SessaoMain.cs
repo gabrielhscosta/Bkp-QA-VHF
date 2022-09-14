@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VHF.TestCase.ST00_ValidaLoginModulos;
 using VHF.TestCase.ST01_ReservaIndividual;
+using VHF.TestCase.ST02_OrcamentoReserva;
 
 namespace VHF.Main
 {
@@ -89,6 +90,18 @@ namespace VHF.Main
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
 
+        public void CN004_Reserva_Individual_Com_Hospede_Cortesia()
+        {
+
+            LoginVHF login = new LoginVHF();
+            CN004 reserva = new CN004();
+            login.ValidaLoginVHF();
+            reserva.ReservaIndividualComHospedeCortesia();
+
+        }
+
+        [TestMethod, TestCategory("1 - Reserva Individual")]
+
         public void CN005_Reserva_Individual_Com_Hospede_Uso_Da_Casa()
         {
             LoginVHF login = new LoginVHF();
@@ -120,5 +133,36 @@ namespace VHF.Main
 
         }
 
+        [TestMethod, TestCategory("2 - Orçamento Reserva")]
+
+        public void CN020_Alterar_Quantidade_De_Dias_Na_Reserva()
+        {
+            LoginVHF login = new LoginVHF();
+            CN020 alterar = new CN020();
+            login.ValidaLoginVHF();
+            alterar.AlterarQuantidadeDiasReserva();
+
+        }
+
+        [TestMethod, TestCategory("2 - Orçamento Reserva")]
+
+        public void CN021_Alterar_Quantidade_De_Hospesdes_Na_Reserva()
+        {
+            LoginVHF login = new LoginVHF();
+            CN021 alterar = new CN021();
+            login.ValidaLoginVHF();
+            alterar.AlterarQuantidadeDeHospedes();
+
+        }
+
+        [TestMethod, TestCategory("2 - Orçamento Reserva")]
+        public void CN022_Alterar_Tipo_De_UH_Na_Reserva()
+        {
+            LoginVHF login = new LoginVHF();
+            CN022 alterar = new CN022();
+            login.ValidaLoginVHF();
+            alterar.AlterarTipoDeUHReserva();
+
+        }
     }
 }

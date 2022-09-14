@@ -1,5 +1,6 @@
 ﻿using VHF.Main;
 using VHF.CommonMethods;
+using VHF.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +20,13 @@ namespace VHF.TestCase.ST01_ReservaIndividual
         {
             FuncComuns funcComuns = new FuncComuns();
             Validacoes validacoes = new Validacoes();
-
+            AppObjects appObjects = new AppObjects();
 
             funcComuns.ChamarAtalho("e", "i");
 
             funcComuns.InserirNumNoites("5");
 
-            funcComuns.PreencherUh("ocupado");
+            funcComuns.PreencherUh("ocupado", appObjects.categUhSuite);
 
             funcComuns.InserirDadosHosp(tipoDeHospede:"Uso da Casa");
 

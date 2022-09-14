@@ -1,5 +1,6 @@
 ﻿using VHF.Main;
 using VHF.CommonMethods;
+using VHF.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,13 @@ namespace VHF.TestCase.ST01_ReservaIndividual
         {
             FuncComuns funcComuns = new FuncComuns();
             Validacoes validacoes = new Validacoes();
+            AppObjects appObjects = new AppObjects();
 
             funcComuns.ChamarAtalho("e", "i");
 
             funcComuns.InserirNumNoites("5");
 
-            funcComuns.PreencherUh("ocupado");
+            funcComuns.PreencherUh("ocupado", appObjects.categUhSuite);
 
             funcComuns.InserirDadosHosp();
 
@@ -43,7 +45,7 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             validacoes.ValidaNumeroLinhaDoOrc(5);
 
-            validacoes.ValidaOrcamento("stnd", 2, 0, 0);
+            validacoes.ValidaOrcamento("suit", 2, 0, 0);
 
             funcComuns.ValidarTelaPrincipalVhf();
 

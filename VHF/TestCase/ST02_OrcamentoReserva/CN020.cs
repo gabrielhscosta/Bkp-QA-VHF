@@ -1,22 +1,22 @@
 ﻿using VHF.Main;
 using VHF.CommonMethods;
-using VHF.PageObjects;
 using System;
 using System.Collections.Generic;
+using VHF.PageObjects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VHF.TestCase.ST01_ReservaIndividual
+namespace VHF.TestCase.ST02_OrcamentoReserva
 {
-    public class CN001 : SessaoMain
+    public class CN020 : SessaoMain
     {
-        public CN001()
+        public CN020()
         {
 
         }
 
-        public void ReservaIndividual()
+        public void AlterarQuantidadeDiasReserva()
         {
             FuncComuns funcComuns = new FuncComuns();
             Validacoes validacoes = new Validacoes();
@@ -44,7 +44,24 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.ValidarTelaPrincipalVhf();
 
-        }
+            funcComuns.AbrirTelaConsultaGeral();
 
+            funcComuns.AcessarReserva(FuncComuns.numRes.Text);
+
+            funcComuns.InserirNumNoites("5");
+
+            funcComuns.VisualizarOrcamentoRes();
+
+            funcComuns.ValidarSituacaoRes();
+
+            validacoes.ValidaReservaGerada();
+
+            validacoes.ValidaNumeroLinhaDoOrc(5);
+
+            validacoes.ValidaOrcamento("suit", 1, 0, 0);
+
+            funcComuns.ValidarTelaPrincipalVhf();
+
+        }
     }
 }
