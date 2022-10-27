@@ -52,19 +52,19 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(1).SendKeys(dataFim);
         }
 
-        public void PreencherUh(string botao)
+        public void PreencherUh(string botao,string UH)
         {
             Elementos.EncontraElementoName(sessionVHF, botao).Click();
             if (botao == "ocupado")
             {
                 Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhEstadia);
-                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhStnd);
+                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(UH);
                 Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
             }
             else if (botao == "cobrado")
             {
                 Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhTarifa);
-                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.categUhStnd);
+                Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(UH);
                 Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
             }
             else if (botao == "numero")
@@ -131,7 +131,11 @@ namespace VHF.CommonMethods
 
             var tmp = Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn);
 
+<<<<<<< HEAD
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
+=======
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).Last().Click();
+>>>>>>> 6d1597b00583d41bdfc6b88a9405fef6f49f1308
         }
 
         public void SelecionarEmpresa()
@@ -252,5 +256,20 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaPrincipal);
         }
+
+        public void AbrirTelaConsultaGeral()
+        {
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(6).Click();
+
+        }
+
+        public void AcessarReserva(string reserva)
+        {
+            Elementos.EncontraElementoName(sessionVHF, "Consulta Geral");
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(9).SendKeys(reserva);
+            Elementos.EncontraElementoName(sessionVHF, "Procurar").Click();
+            Elementos.EncontraElementoName(sessionVHF, "Editar").Click();
+        }
     }
+
 }
