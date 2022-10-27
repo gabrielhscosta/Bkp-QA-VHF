@@ -93,6 +93,7 @@
     <Compile Include="Main\SessaoMain.cs" />
     <Compile Include="PageObjects\AppObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCase\ST01_ReservaIndividual\CN002.cs" />
     <Compile Include="TestCase\ST01_ReservaIndividual\CN003.cs" />
     <Compile Include="TestCase\ST01_ReservaIndividual\CN001.cs" />
     <Compile Include="TestCase\ST00_ValidaLoginModulos\LoginVHF.cs" />

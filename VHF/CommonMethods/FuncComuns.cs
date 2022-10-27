@@ -131,7 +131,7 @@ namespace VHF.CommonMethods
 
             var tmp = Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn);
 
-            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(47).Click();
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
         }
 
         public void SelecionarEmpresa()

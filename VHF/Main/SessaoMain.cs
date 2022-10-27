@@ -89,6 +89,18 @@ namespace VHF.Main
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
 
+        public void CN002_ReservaIndividual_Com_Cliente_Contrato_Sem_Contrato()
+        {
+
+            LoginVHF login = new LoginVHF();
+            CN002 reserva = new CN002();
+            login.ValidaLoginVHF();
+            reserva.ReservaIndividual_Com_Cliente_Sem_Contrato();
+
+        }
+
+        [TestMethod, TestCategory("1 - Reserva Individual")]
+
         public void CN003_ReservaIndividual_Com_Cliente_Contrato()
         {
 
