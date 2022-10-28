@@ -184,3 +184,93 @@
           valorPaxAdicional: 266
           valorFixoCri1: 266
           valorFixoCri2: 266
+
+    - descricao: TARIFA NET 2020-60
+      valorUHs:
+        - uh: stnd
+          valorUmPax: 393.75
+          valorDoisPax: 393.75
+          valorTresPax:
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional:
+          valorFixoCri1:
+          valorFixoCri2:
+        - uh: suit
+          valorUmPax: 787.5
+          valorDoisPax: 840
+          valorTresPax: 892.5
+          valorQuatroPax: 945
+          valorCincoPax:
+          valorPaxAdicional: 367.5
+          valorFixoCri1: 367.5
+          valorFixoCri2: 367.5
+        - uh: frua
+          valorUmPax: 453.6
+          valorDoisPax: 453.6
+          valorTresPax: 550
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional: 200
+          valorFixoCri1: 200
+          valorFixoCri2: 200
+
+    - descricao: BAAR NET 2020-60
+      valorUHs:
+        - uh: stnd
+          valorUmPax: 385.88
+          valorDoisPax: 385.88
+          valorTresPax:
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional:
+          valorFixoCri1:
+          valorFixoCri2:
+        - uh: suit
+          valorUmPax: 771.75
+          valorDoisPax: 823.2
+          valorTresPax: 874.65
+          valorQuatroPax: 926.1
+          valorCincoPax:
+          valorPaxAdicional: 360.15
+          valorFixoCri1: 360.15
+          valorFixoCri2: 360.15
+        - uh: frua
+          valorUmPax: 444.53
+          valorDoisPax: 444.53
+          valorTresPax: 539
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional: 196
+          valorFixoCri1: 196
+          valorFixoCri2: 196
+
+    - descricao: ACORDO NET 2020-60
+      valorUHs:
+        - uh: stnd
+          valorUmPax: 401.63
+          valorDoisPax: 401.63
+          valorTresPax:
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional:
+          valorFixoCri1:
+          valorFixoCri2:
+        - uh: suit
+          valorUmPax: 803.25
+          valorDoisPax: 856.8
+          valorTresPax: 910.35
+          valorQuatroPax: 963.9
+          valorCincoPax:
+          valorPaxAdicional: 374.85
+          valorFixoCri1: 374.85
+          valorFixoCri2: 374.85
+        - uh: frua
+          valorUmPax: 462.67
+          valorDoisPax: 462.67
+          valorTresPax: 561
+          valorQuatroPax:
+          valorCincoPax:  
+          valorPaxAdicional: 204
+          valorFixoCri1: 204
+          valorFixoCri2: 204

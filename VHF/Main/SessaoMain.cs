@@ -96,7 +96,7 @@ namespace VHF.Main
             LoginVHF login = new LoginVHF();
             CN002 reserva = new CN002();
             login.ValidaLoginVHF();
-            reserva.ReservaIndividual_Com_Cliente_Sem_Contrato();
+            reserva.ReservaIndividualComClienteSemContrato();
 
         }
 
@@ -108,7 +108,7 @@ namespace VHF.Main
             LoginVHF login = new LoginVHF();
             CN003 reserva = new CN003();
             login.ValidaLoginVHF();
-            reserva.ReservaIndividual_Com_Cliente_Contrato();
+            reserva.ReservaIndividualComClienteContrato();
 
         }
 
@@ -132,6 +132,17 @@ namespace VHF.Main
             CN005 reserva = new CN005();
             login.ValidaLoginVHF();
             reserva.ReservaIndividualComHospedeUsoDaCasa();
+
+        }
+
+        [TestMethod, TestCategory("1 - Reserva Individual")]
+
+        public void CN007_Reserva_Individual_Pelo_Grid_De_Disponibilidade()
+        {
+            LoginVHF login = new LoginVHF();
+            CN007 reserva = new CN007();
+            login.ValidaLoginVHF();
+            reserva.ReservaIndividualPeloGridDeDisponibilidade();
 
         }
 

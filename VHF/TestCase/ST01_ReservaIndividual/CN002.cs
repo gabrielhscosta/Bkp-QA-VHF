@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VHF.PageObjects;
 
 namespace VHF.TestCase.ST01_ReservaIndividual
 {
@@ -15,17 +16,18 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
         }
 
-        public void ReservaIndividual_Com_Cliente_Sem_Contrato()
+        public void ReservaIndividualComClienteSemContrato()
         {
             FuncComuns funcComuns = new FuncComuns();
             Validacoes validacoes = new Validacoes();
+            AppObjects appObjects = new AppObjects();
 
 
             funcComuns.ChamarAtalho("e", "i");
 
             funcComuns.InserirNumNoites("6");
 
-            funcComuns.PreencherUh("ocupado");
+            funcComuns.PreencherUh(appObjects.btnUhOcupado, appObjects.categUhStnd);
 
             funcComuns.SelecionarEmpresa();
 
@@ -43,7 +45,7 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             //realizaConsultas.ValidarFnrhMovimentoHospede();
 
-            validacoes.ValidaOrcamento("stnd", 1, 0, 0);
+            validacoes.ValidaOrcamento(appObjects.categUhStnd, 1, 0, 0);
 
             funcComuns.ValidarTelaPrincipalVhf();
 

@@ -36,6 +36,7 @@ namespace VHF.PageObjects
         public string btnIdioma = ("idioma");
         public string btnDocHosp = ("documentohospede");
         public string btnContrato = ("contrato");
+        public string btnReservarGrid = ("Reservar");
 
         #endregion
 
@@ -67,6 +68,10 @@ namespace VHF.PageObjects
         public string scrTelaPrincipalCAIXA = ("TfrmPrincipalCAIXA");
         public string scrSelecGeral = ("TfrmSelecaoGeral");
         public string scrMontaSelect = ("TfrmMontaSelect");
+        public string scrTelaResDisp = ("TfrmReservaDisp");
+        public string scrTelaGridDisp = ("TStringGrid");
+        public string scrTelaSugereTarifa = ("TfrmSugereTarifa");
+        public string scrTelaMsgAtencao = ("TMessageForm");
 
         #endregion
 

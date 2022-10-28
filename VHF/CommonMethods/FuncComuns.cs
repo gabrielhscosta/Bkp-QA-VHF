@@ -82,8 +82,6 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
 
-            
-
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(19).SendKeys(dadosHosp.NomeFaker);
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(20).SendKeys(dadosHosp.SobrenomeFaker);
 
@@ -131,11 +129,45 @@ namespace VHF.CommonMethods
 
             var tmp = Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn);
 
-<<<<<<< HEAD
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
-=======
+
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).Last().Click();
->>>>>>> 6d1597b00583d41bdfc6b88a9405fef6f49f1308
+
+        }
+
+        public void InserirDadosHospDaReservaPeloGrid()
+        {
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(55).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winDadosPrincipais);
+
+            var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(19).SendKeys(dadosHosp.NomeFaker);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(20).SendKeys(dadosHosp.SobrenomeFaker);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(18).SendKeys(dadosHosp.EmailFaker);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(1).SendKeys(dadosHosp.TratamentoHosp);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDateTimePicker).ElementAt(4).SendKeys(dadosHosp.DtNascFaker);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnCidade).Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winSelecCidade);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(6).SendKeys(dadosHosp.CidadeFaker);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnIdioma).Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winIdiomaHosp);
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.idiomaHosp);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(55).Click();
         }
 
         public void SelecionarEmpresa()
@@ -219,6 +251,21 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TwwDBEdit).ElementAt(7).SendKeys(emailConfirRes.EmailFaker);
         }
 
+        public void InserirDocConfirmacaoDaReservaPeloGrid()
+        {
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winDocConfirmacaoRes);
+
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.docEmail);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+            var emailConfirRes = GeradorDadosFakes.ListaDadosFakerPessoa();
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TwwDBEdit).ElementAt(9).SendKeys(emailConfirRes.EmailFaker);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+        }
+
         public void VisualizarOrcamentoRes()
         {
             Elementos.EncontraElementoName(sessionVHF, appObjects.txtVisualOrcamento).Click();
@@ -231,7 +278,7 @@ namespace VHF.CommonMethods
 
             Thread.Sleep(90000);
 
-            Elementos.EncontraElementoName(sessionVHF, "Situação da Reserva");
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winSitReserva);
 
             Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
 
@@ -270,6 +317,29 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, "Procurar").Click();
             Elementos.EncontraElementoName(sessionVHF, "Editar").Click();
         }
-    }
 
+        public void InserirResGridDispo()
+        {
+            var gridDisp = sessionVHF.FindElementByClassName(appObjects.scrTelaPrincipal);
+
+            var resDisp = gridDisp.FindElementByClassName(appObjects.scrTelaResDisp);
+
+            var selecPeriodo = resDisp.FindElementByClassName(appObjects.scrTelaGridDisp);
+
+            new Actions(sessionVHF).MoveToElement(selecPeriodo, 134, 105).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecPeriodo, 329, 105).Click().Perform();
+
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaSugereTarifa);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnReservarGrid).Click();
+
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaMsgAtencao);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnOK).Click();
+        }
+
+        
+
+        
+    }
 }
