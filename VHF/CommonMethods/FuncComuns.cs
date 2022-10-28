@@ -331,6 +331,24 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaSugereTarifa);
 
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnReservarGrid).Click();
+        }
+
+        public void InserirResGridDispoUtilizandoSugestaoTarifaria()
+        {
+            var gridDisp = sessionVHF.FindElementByClassName(appObjects.scrTelaPrincipal);
+
+            var resDisp = gridDisp.FindElementByClassName(appObjects.scrTelaResDisp);
+
+            var selecPeriodo = resDisp.FindElementByClassName(appObjects.scrTelaGridDisp);
+
+            new Actions(sessionVHF).MoveToElement(selecPeriodo, 134, 105).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecPeriodo, 329, 105).Click().Perform();
+
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaSugereTarifa);
+
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnReservarGrid).Click();
 
             Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaMsgAtencao);
@@ -338,8 +356,8 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnOK).Click();
         }
 
-        
 
-        
+
+
     }
 }

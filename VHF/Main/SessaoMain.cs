@@ -148,6 +148,16 @@ namespace VHF.Main
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
 
+        public void CN008_Reserva_Individual_Pelo_Grid_De_Disponibilidade_Utilizando_Sugestao_Tarifaria()
+        {
+            LoginVHF login = new LoginVHF();
+            CN008 reserva = new CN008();
+            login.ValidaLoginVHF();
+            reserva.ReservaIndividualPeloGridDeDisponibilidadeUtilizandoSugestaoTarifaria();
+        }
+
+        [TestMethod, TestCategory("1 - Reserva Individual")]
+
         public void CN011_Reserva_Individual_Mais_De_Um_Hospede()
         {
             LoginVHF login = new LoginVHF();
