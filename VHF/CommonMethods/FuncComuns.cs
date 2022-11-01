@@ -131,7 +131,7 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
 
-            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).Last().Click();
+            //Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).Last().Click();
 
         }
 
@@ -276,7 +276,7 @@ namespace VHF.CommonMethods
         public void ValidarSituacaoRes()
         {
 
-            Thread.Sleep(90000);
+            Thread.Sleep(9000);
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.winSitReserva);
 
@@ -356,7 +356,36 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnOK).Click();
         }
 
+        public void InserirDirecioamentoDeDespesas()
+        {
+            Thread.Sleep(9000);
 
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnContaDirec).Click();
+
+            Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
+
+            var winDirecDesp = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+            winDirecDesp.Manage().Window.Maximize();
+
+            var selecDirecDesp = sessionVHF.FindElementByName(appObjects.winDirecDespesas);
+
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 100).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 170).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 196).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 220).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 246).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 270).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 320).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 346).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 370).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 396).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 420).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 350, 280).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 396, 176).Click().Perform();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+        }
 
 
     }

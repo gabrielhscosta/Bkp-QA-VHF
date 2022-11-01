@@ -37,6 +37,7 @@ namespace VHF.PageObjects
         public string btnDocHosp = ("documentohospede");
         public string btnContrato = ("contrato");
         public string btnReservarGrid = ("Reservar");
+        public string btnContaDirec = ("Conta");
 
         #endregion
 
@@ -72,6 +73,8 @@ namespace VHF.PageObjects
         public string scrTelaGridDisp = ("TStringGrid");
         public string scrTelaSugereTarifa = ("TfrmSugereTarifa");
         public string scrTelaMsgAtencao = ("TMessageForm");
+        public string scrTelaDirecDespesas = ("TfrmCxDirecionaDesp");
+
 
         #endregion
 
@@ -91,6 +94,7 @@ namespace VHF.PageObjects
         public string winSitReserva = ("Situação da Reserva");
         public string winSelecCliente = ("Seleciona");
         public string winContratoCliente = ("Contratos da Empresa");
+        public string winDirecDespesas = ("Direcionamento de Despesas");
 
         #endregion
 

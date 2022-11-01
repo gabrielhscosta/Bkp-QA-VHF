@@ -29,11 +29,11 @@ namespace VHF.CommonMethods
             string getReserva = null;
 
             cmd.CommandText = "select numReserva" +
-                " from RESERVASFRONT" +
-                " where statusReserva = 1" +
-                " and idHotel = 1" +
-                " and numReserva = " + FuncComuns.numRes.Text +
-                " order by numReserva desc";
+                        " from RESERVASFRONT" +
+                        " where statusReserva = 1" +
+                        " and idHotel = 1" +
+                        " and numReserva = " + FuncComuns.numRes.Text +
+                        " order by numReserva desc";
 
             try
             {
@@ -109,7 +109,39 @@ namespace VHF.CommonMethods
 
             return lista;
         }
+
+        public int SelectValidaDirecionamentoDespesas()
+        {
+            SqlCommand cmd1 = new SqlCommand();
+
+            int lineDirec = 0;
+
+            cmd1.CommandText = " select count (*) from direcdespesas d, TipoDebCredHotel t, reservasfront r, contasfront c" +
+                        " where d.idhotel = 1" +
+                        " and r.numreserva " + FuncComuns.numRes.Text +
+                        " and d.idconta = c.idconta" +
+                        " and r.IdReservasFront = c.IdReservasFront" +
+                        " and d.idhotel = t.idhotel" +
+                        " and d.idtipodebcred = t.idtipodebcred" +
+                        " order by 1 desc";
+
+            try
+            {
+                cmd1.Connection = conexaoBd.conectar();
+                lineDirec = (int)(cmd1.ExecuteScalar());
+                conexaoBd.desconectar();
+            }
+
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return lineDirec;
+        }
+
     }
+
     public class TarifaConsulta
     {
         public string Descricao { get; set; }
