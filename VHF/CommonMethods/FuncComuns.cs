@@ -380,6 +380,7 @@ namespace VHF.CommonMethods
             new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 370).Click().Perform();
             new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 396).Click().Perform();
             new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 420).Click().Perform();
+            
             new Actions(sessionVHF).MoveToElement(selecDirecDesp, 350, 280).Click().Perform();
             new Actions(sessionVHF).MoveToElement(selecDirecDesp, 396, 176).Click().Perform();
 

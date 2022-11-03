@@ -42,7 +42,7 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.ValidarSituacaoRes();
 
-            validacoes.ValidaDirecionamentoDespesas();
+            validacoes.ValidaDirecionamentoDespesas(10);
 
             validacoes.ValidaReservaGerada();
 

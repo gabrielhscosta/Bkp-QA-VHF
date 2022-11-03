@@ -89,9 +89,10 @@ namespace VHF.CommonMethods
 
         }
 
-        public void ValidaDirecionamentoDespesas()
+        public void ValidaDirecionamentoDespesas(int qtdDespesas)
         {
             int linhasDirec = realizaConsultas.SelectValidaDirecionamentoDespesas();
+            Assert.AreEqual(qtdDespesas, linhasDirec);
         }
 
     }
