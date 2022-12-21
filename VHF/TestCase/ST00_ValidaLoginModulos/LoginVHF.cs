@@ -62,7 +62,7 @@ namespace VHF.TestCase.ST00_ValidaLoginModulos
 
             bool screenPrincipal = false;
 
-            if (sessionVHF.FindElementByClassName(appObjectsVhf.scrTelaPrincipal).Text.Equals(appObjectsVhf.titleTelaPrincipalVHF))
+            if (sessionVHF.FindElementByClassName(appObjectsVhf.scrTelaPrincipal).Text.StartsWith(appObjectsVhf.titleTelaPrincipalVHF))
             {
                 screenPrincipal = true;
                 Debug.WriteLine("Tela Principal do VHF inicializada com sucesso.");

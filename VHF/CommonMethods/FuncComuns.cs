@@ -388,6 +388,18 @@ namespace VHF.CommonMethods
 
         }
 
+        public void VisualizarSlipDeReserva()
+        {
+            Thread.Sleep(9000);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnSlip).Click();
+
+            Elementos.EncontraElementoClassname(sessionVHF, "TfrmSlipDlg");
+
+            Elementos.EncontraElementoName(sessionVHF, "Externo").Click();
+
+            Elementos.EncontraElementoName(sessionVHF, "Visualizar").Click();
+        }
 
     }
 }

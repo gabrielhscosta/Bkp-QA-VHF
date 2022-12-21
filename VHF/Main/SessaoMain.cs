@@ -168,6 +168,16 @@ namespace VHF.Main
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
 
+        public void CN010_Reserva_Individual_Validando_Slip()
+        {
+            LoginVHF login = new LoginVHF();
+            CN010 reserva = new CN010();
+            login.ValidaLoginVHF();
+            reserva.ReservaIndividualValidandoSlip();
+        }
+
+        [TestMethod, TestCategory("1 - Reserva Individual")]
+
         public void CN011_Reserva_Individual_Mais_De_Um_Hospede()
         {
             LoginVHF login = new LoginVHF();

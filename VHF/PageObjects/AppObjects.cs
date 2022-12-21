@@ -38,6 +38,7 @@ namespace VHF.PageObjects
         public string btnContrato = ("contrato");
         public string btnReservarGrid = ("Reservar");
         public string btnContaDirec = ("Conta");
+        public string btnSlip = ("Slip");
 
         #endregion
 

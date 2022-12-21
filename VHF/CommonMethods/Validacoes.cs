@@ -1,21 +1,25 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VHF.DadosYaml;
+using VHF.Main;
+using VHF.PageObjects;
 
 namespace VHF.CommonMethods
 {
     // classe para criar as validacao juntamente com os asserts
-    public class Validacoes
+    public class Validacoes : SessaoMain
     {
         public Validacoes()
         {
 
         }
 
+        AppObjects appObjetcs = new AppObjects();
         RealizaConsultas realizaConsultas = new RealizaConsultas();
 
         public void ValidaReservaGerada()
@@ -93,6 +97,20 @@ namespace VHF.CommonMethods
         {
             int linhasDirec = realizaConsultas.SelectValidaDirecionamentoDespesas();
             Assert.AreEqual(qtdDespesas, linhasDirec);
+        }
+
+        public void ValidaSlipDeReserva()
+        {
+            Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
+
+            var winVisualSlip = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+            //winVisualSlip.Manage().Window.Maximize();
+
+            var validaImpSlip = sessionVHF.FindElementByName("Visualizando impressão");
+
+            validaImpSlip.FindElementByName(appObjetcs.btnFechar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjetcs.btnSair).Click();
         }
 
     }
