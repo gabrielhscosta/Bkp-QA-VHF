@@ -2,21 +2,21 @@
 using VHF.CommonMethods;
 using System;
 using System.Collections.Generic;
+using VHF.PageObjects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VHF.PageObjects;
 
-namespace VHF.TestCase.ST01_ReservaIndividual
+namespace VHF.TestCase.ST02_OrcamentoReserva
 {
-    public class CN010 : SessaoMain
+    public class CN027 : SessaoMain
     {
-        public CN010()
+        public CN027()
         {
 
         }
 
-        public void ReservaIndividualValidandoSlip()
+        public void UsarBotaoRepetirDaTelaDeSituacaoDeReserva()
         {
             FuncComuns funcComuns = new FuncComuns();
             Validacoes validacoes = new Validacoes();
@@ -46,12 +46,21 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             validacoes.ValidaOrcamento("stnd", 1, 0, 0, "AUTO ACORDO 2022-60");
 
-            funcComuns.VisualizarSlipDeReserva();
+            funcComuns.RepetirReserva();
 
-            validacoes.ValidaSlipDeReserva();
+            funcComuns.InserirDadosHosp();
+
+            funcComuns.VisualizarOrcamentoRes();
+
+            funcComuns.ValidarSituacaoRes();
+
+            validacoes.ValidaReservaGerada();
+
+            validacoes.ValidaNumeroLinhaDoOrc(7);
+
+            validacoes.ValidaOrcamento("stnd", 1, 0, 0, "AUTO ACORDO 2022-60");
 
             funcComuns.ValidarTelaPrincipalVhf();
         }
-
     }
 }

@@ -238,5 +238,14 @@ namespace VHF.Main
             login.ValidaLoginVHF();
             alterar.EntradaDeHospede();
         }
+
+        [TestMethod, TestCategory("2 - Orçamento Reserva")]
+        public void CN027_Usar_Botao_Repetir_Da_Tela_De_Situacao_De_Reserva()
+        {
+            LoginVHF login = new LoginVHF();
+            CN027 alterar = new CN027();
+            login.ValidaLoginVHF();
+            alterar.UsarBotaoRepetirDaTelaDeSituacaoDeReserva();
+        }
     }
 }

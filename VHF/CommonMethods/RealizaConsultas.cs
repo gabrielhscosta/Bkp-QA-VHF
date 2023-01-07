@@ -171,18 +171,18 @@ namespace VHF.CommonMethods
 
         public List<TarifaConsulta> SelectValidarValorOrcamentoComAlteracao()
         {
-            SqlCommand cmd2 = new SqlCommand();
+            SqlCommand cmd5 = new SqlCommand();
 
             SqlDataReader reader = null;
 
             List<TarifaConsulta> lista = null;
 
-            cmd2.CommandText = "select t.Descricao, oc.VALOR, oc.VALORTARIFA from RESERVASFRONT r, ORCAMENTORESERVA oc, TARIFAHOTEL t where r.idhotel = 1 and r.numreserva = " + FuncComuns.idRes.Text + " and r.idhotel = oc.idhotel and r.idreservasfront = oc.idreservasfront and oc.IdHotel = t.IdHotel and oc.idTarifa = t.idTarifa order by data asc";
+            cmd5.CommandText = "select t.Descricao, oc.VALOR, oc.VALORTARIFA from RESERVASFRONT r, ORCAMENTORESERVA oc, TARIFAHOTEL t where r.idhotel = 1 and r.numreserva = " + FuncComuns.idRes.Text + " and r.idhotel = oc.idhotel and r.idreservasfront = oc.idreservasfront and oc.IdHotel = t.IdHotel and oc.idTarifa = t.idTarifa order by data asc";
 
             try
             {
-                cmd2.Connection = conexaoBd.conectar();
-                reader = (cmd2.ExecuteReader());
+                cmd5.Connection = conexaoBd.conectar();
+                reader = (cmd5.ExecuteReader());
                 lista = new List<TarifaConsulta>();
 
 

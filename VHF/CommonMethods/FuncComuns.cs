@@ -416,8 +416,6 @@ namespace VHF.CommonMethods
 
         public void InserirDirecioamentoDeDespesas()
         {
-            Thread.Sleep(9000);
-
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnContaDirec).Click();
 
             Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
@@ -448,8 +446,6 @@ namespace VHF.CommonMethods
 
         public void VisualizarSlipDeReserva()
         {
-            Thread.Sleep(9000);
-
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnSlip).Click();
 
             Elementos.EncontraElementoClassname(sessionVHF, appObjects.winSlipReserva);
@@ -501,5 +497,11 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, "Maximizar").Click();
         }
 
+        public void RepetirReserva()
+        {
+            Elementos.EncontraElementoName(sessionVHF, "Repetir").Click();
+        }
+        
+        
     }
 }
