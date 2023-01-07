@@ -50,13 +50,15 @@ namespace VHF.TestCase.ST00_ValidaLoginModulos
 
             #endregion
 
+
             #region Janela Atenção
 
             Thread.Sleep(90000);
-            //Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.txtAlertAtencao);
+            Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.txtAlertAtencao);
             Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.btnOK).Click();
 
             #endregion
+            
 
             #region Conferência Tela Principal VHF
 

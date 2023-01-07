@@ -104,7 +104,5 @@ namespace VHF.CommonMethods
             waitForMe.Until(pred => elementos.Count() != 0);
             return elementos;
         }
-
-
     }
 }

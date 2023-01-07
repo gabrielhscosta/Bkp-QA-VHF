@@ -229,5 +229,14 @@ namespace VHF.Main
             alterar.AlterarTipoDeUHReserva();
 
         }
+
+        [TestMethod, TestCategory("2 - Orçamento Reserva")]
+        public void CN026_Entrada_De_Hospede()
+        {
+            LoginVHF login = new LoginVHF();
+            CN026 alterar = new CN026();
+            login.ValidaLoginVHF();
+            alterar.EntradaDeHospede();
+        }
     }
 }

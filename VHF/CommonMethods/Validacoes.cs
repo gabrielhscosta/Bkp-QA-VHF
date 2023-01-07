@@ -113,5 +113,52 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, appObjetcs.btnSair).Click();
         }
 
+        public void ValidaNumeroHospedes(int qtdAdultos)
+        {
+            int linhaAdultos = realizaConsultas.SelectValidarNumeroHospedes();
+            Assert.AreEqual(qtdAdultos, linhaAdultos);
+        }
+
+        public void ValidaOrcamentoComAlteracao(string UH, int qtdPaxAdulto, int qtdPaxCriancaUm, int qtdPaxCriancaDois, string tarifa = "BALCAO 2021-60")
+        {
+            List<TarifaConsulta> lista = realizaConsultas.SelectValidarValorOrcamentoComAlteracao();
+
+            DeserializedObject dadosYaml = ImportaYaml.Deserialize(@"..\..\DadosYaml\tarifa.yml");
+
+            int indice = dadosYaml.tarifa.FindIndex(tmp => tmp.descricao.Equals(tarifa));
+
+            float soma = 0;
+            switch (qtdPaxAdulto)
+            {
+                case 1:
+                    soma += dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorUmPax).ElementAt(0);
+                    soma = soma + (qtdPaxCriancaUm * dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorFixoCri1).ElementAt(0)) + (qtdPaxCriancaDois * dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorFixoCri2).ElementAt(0));
+                    break;
+                case 2:
+                    soma += dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorDoisPax).ElementAt(0);
+                    soma = soma + (qtdPaxCriancaUm * dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorFixoCri1).ElementAt(0)) + (qtdPaxCriancaDois * dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorFixoCri2).ElementAt(0));
+                    break;
+                case 3:
+                    soma += dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorTresPax).ElementAt(0);
+                    soma = soma + (qtdPaxCriancaUm * dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorFixoCri1).ElementAt(0)) + (qtdPaxCriancaDois * dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorFixoCri2).ElementAt(0));
+                    break;
+                case 4:
+                    soma += dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorQuatroPax).ElementAt(0);
+                    soma = soma + (qtdPaxCriancaUm * dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorFixoCri1).ElementAt(0)) + (qtdPaxCriancaDois * dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorFixoCri2).ElementAt(0));
+                    break;
+                case 5:
+                    soma += dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorCincoPax).ElementAt(0);
+                    soma = soma + (qtdPaxCriancaUm * dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorFixoCri1).ElementAt(0)) + (qtdPaxCriancaDois * dadosYaml.tarifa[indice].valorUHs.Where(valorUh => valorUh.uh.Equals(UH)).Select(valorUh => valorUh.valorFixoCri2).ElementAt(0));
+                    break;
+            }
+
+            foreach (TarifaConsulta t in lista)
+            {
+                Assert.AreEqual(dadosYaml.tarifa[indice].descricao, t.Descricao);
+                Assert.AreEqual(soma, t.Valor);
+                Assert.AreEqual(soma, t.ValorTarifa);
+            }
+
+        }
     }
 }

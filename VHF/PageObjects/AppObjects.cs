@@ -32,6 +32,7 @@ namespace VHF.PageObjects
         public string btnFechar = ("Fechar");
         public string btnUhOcupado = ("ocupado");
         public string btnUhCobrado = ("cobrado");
+        public string btnUhNumero = ("numeroxxxxxxxxxxxx");
         public string btnCidade = ("cidade");
         public string btnIdioma = ("idioma");
         public string btnDocHosp = ("documentohospede");
@@ -39,6 +40,15 @@ namespace VHF.PageObjects
         public string btnReservarGrid = ("Reservar");
         public string btnContaDirec = ("Conta");
         public string btnSlip = ("Slip");
+        public string btnVisualizar = ("Visualizar");
+        public string btnEntradaHosp = ("Entrada Hósp.");
+
+        #endregion
+
+
+        #region RadioButton
+        public string rbExterno = ("Externo");
+        public string rbCompartilhar = ("Compartilhar");
 
         #endregion
 
@@ -75,6 +85,7 @@ namespace VHF.PageObjects
         public string scrTelaSugereTarifa = ("TfrmSugereTarifa");
         public string scrTelaMsgAtencao = ("TMessageForm");
         public string scrTelaDirecDespesas = ("TfrmCxDirecionaDesp");
+        public string scrTelaEntradaHosp = ("TfrmEntradaHosp");
 
 
         #endregion
@@ -96,6 +107,8 @@ namespace VHF.PageObjects
         public string winSelecCliente = ("Seleciona");
         public string winContratoCliente = ("Contratos da Empresa");
         public string winDirecDespesas = ("Direcionamento de Despesas");
+        public string winSlipReserva = ("TfrmSlipDlg");
+        public string winConsultaGeral = ("Consulta Geral");
 
         #endregion
 
@@ -131,6 +144,7 @@ namespace VHF.PageObjects
         public string docEmail = ("EM");
         public string docCliente = ("77048338000148");
         public string docHospEstada = ("88180094600");
+        public string tipoHospPart = ("Particular");
 
         #endregion
 

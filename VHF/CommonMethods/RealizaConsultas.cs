@@ -29,11 +29,11 @@ namespace VHF.CommonMethods
             string getReserva = null;
 
             cmd.CommandText = "select numReserva" +
-                        " from RESERVASFRONT" +
-                        " where statusReserva = 1" +
-                        " and idHotel = 1" +
+                        " from reservasfront" +
+                        " where idHotel = 1" +
                         " and numReserva = " + FuncComuns.numRes.Text +
                         " order by numReserva desc";
+            //" and  statusReserva = 1" +
 
             try
             {
@@ -54,16 +54,19 @@ namespace VHF.CommonMethods
             SqlCommand cmd1 = new SqlCommand();
 
             int lineOrc = 0;
-            
-            cmd1.CommandText = "select COUNT(*) from reservasfront r, ORCAMENTORESERVA oc where r.idhotel = 1 and r.numreserva =  " + FuncComuns.numRes.Text + " and r.idhotel = oc.idhotel and r.idreservasfront = oc.idreservasfront";
-                
+
+            cmd1.CommandText = "select COUNT(*) from reservasfront r, ORCAMENTORESERVA oc " +
+                "where r.idhotel = 1 and r.numreserva =  " + FuncComuns.numRes.Text +
+                "and r.idhotel = oc.idhotel " +
+                "and r.idreservasfront = oc.idreservasfront";
+
             try
             {
                 cmd1.Connection = conexaoBd.conectar();
                 lineOrc = (int)(cmd1.ExecuteScalar());
                 conexaoBd.desconectar();
             }
-            
+
             catch (SqlException ex)
             {
                 ex.Message.ToString();
@@ -74,18 +77,18 @@ namespace VHF.CommonMethods
 
         public List<TarifaConsulta> SelectValidarValorOrcamento()
         {
-            SqlCommand cmd1 = new SqlCommand();
+            SqlCommand cmd2 = new SqlCommand();
 
             SqlDataReader reader = null;
 
             List<TarifaConsulta> lista = null;
 
-            cmd1.CommandText = "select t.Descricao, oc.VALOR, oc.VALORTARIFA from RESERVASFRONT r, ORCAMENTORESERVA oc, TARIFAHOTEL t where r.idhotel = 1 and r.numreserva = " + FuncComuns.numRes.Text + " and r.idhotel = oc.idhotel and r.idreservasfront = oc.idreservasfront and oc.IdHotel = t.IdHotel and oc.idTarifa = t.idTarifa order by data asc";
+            cmd2.CommandText = "select t.Descricao, oc.VALOR, oc.VALORTARIFA from RESERVASFRONT r, ORCAMENTORESERVA oc, TARIFAHOTEL t where r.idhotel = 1 and r.numreserva = " + FuncComuns.numRes.Text + " and r.idhotel = oc.idhotel and r.idreservasfront = oc.idreservasfront and oc.IdHotel = t.IdHotel and oc.idTarifa = t.idTarifa order by data asc";
 
             try
             {
-                cmd1.Connection = conexaoBd.conectar();
-                reader = (cmd1.ExecuteReader());
+                cmd2.Connection = conexaoBd.conectar();
+                reader = (cmd2.ExecuteReader());
                 lista = new List<TarifaConsulta>();
 
 
@@ -99,7 +102,7 @@ namespace VHF.CommonMethods
 
                 }
                 conexaoBd.desconectar();
-                    
+
             }
 
             catch (SqlException ex)
@@ -112,13 +115,13 @@ namespace VHF.CommonMethods
 
         public int SelectValidaDirecionamentoDespesas()
         {
-            SqlCommand cmd1 = new SqlCommand();
+            SqlCommand cmd3 = new SqlCommand();
 
             int lineDirec = 0;
 
-            cmd1.CommandText = " select count (*) from direcdespesas d, TipoDebCredHotel t, reservasfront r, contasfront c" +
+            cmd3.CommandText = "select count (*) from direcdespesas d, TipoDebCredHotel t, reservasfront r, contasfront c" +
                         " where d.idhotel = 1" +
-                        " and r.numreserva " + FuncComuns.numRes.Text +
+                        " and r.numreserva = " + FuncComuns.numRes.Text +
                         " and d.idconta = c.idconta" +
                         " and r.IdReservasFront = c.IdReservasFront" +
                         " and d.idhotel = t.idhotel" +
@@ -127,8 +130,8 @@ namespace VHF.CommonMethods
 
             try
             {
-                cmd1.Connection = conexaoBd.conectar();
-                lineDirec = (int)(cmd1.ExecuteScalar());
+                cmd3.Connection = conexaoBd.conectar();
+                lineDirec = (int)(cmd3.ExecuteScalar());
                 conexaoBd.desconectar();
             }
 
@@ -140,6 +143,69 @@ namespace VHF.CommonMethods
             return lineDirec;
         }
 
+        public int SelectValidarNumeroHospedes()
+        {
+            SqlCommand cmd4 = new SqlCommand();
+
+            int lineAdultos = 0;
+
+            cmd4.CommandText = "select adultos from reservasfront " +
+                "where idhotel = 1 and numReserva = " + FuncComuns.idRes.Text + 
+                " order by numReserva desc";
+
+            try
+            {
+                cmd4.Connection = conexaoBd.conectar();
+                lineAdultos = (int)(cmd4.ExecuteScalar());
+                conexaoBd.desconectar();
+            }
+
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return lineAdultos;
+
+        }
+
+        public List<TarifaConsulta> SelectValidarValorOrcamentoComAlteracao()
+        {
+            SqlCommand cmd2 = new SqlCommand();
+
+            SqlDataReader reader = null;
+
+            List<TarifaConsulta> lista = null;
+
+            cmd2.CommandText = "select t.Descricao, oc.VALOR, oc.VALORTARIFA from RESERVASFRONT r, ORCAMENTORESERVA oc, TARIFAHOTEL t where r.idhotel = 1 and r.numreserva = " + FuncComuns.idRes.Text + " and r.idhotel = oc.idhotel and r.idreservasfront = oc.idreservasfront and oc.IdHotel = t.IdHotel and oc.idTarifa = t.idTarifa order by data asc";
+
+            try
+            {
+                cmd2.Connection = conexaoBd.conectar();
+                reader = (cmd2.ExecuteReader());
+                lista = new List<TarifaConsulta>();
+
+
+                while (reader.Read())
+                {
+                    var tmp = new TarifaConsulta();
+                    tmp.Descricao = reader["Descricao"].ToString();
+                    tmp.Valor = Convert.ToInt32(reader["VALOR"]);
+                    tmp.ValorTarifa = Convert.ToInt32(reader["VALORTARIFA"]);
+                    lista.Add(tmp);
+
+                }
+                conexaoBd.desconectar();
+
+            }
+
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return lista;
+        }
     }
 
     public class TarifaConsulta
