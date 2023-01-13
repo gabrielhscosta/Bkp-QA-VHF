@@ -10,6 +10,9 @@ using OpenQA.Selenium.Interactions;
 using System.Diagnostics;
 using OpenQA.Selenium.Appium;
 using System.Threading;
+using OpenQA.Selenium.Appium.Windows;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium.Support.UI;
 
 namespace VHF.CommonMethods
 {
@@ -97,9 +100,6 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnUhNumero).Click();
             
             Elementos.EncontraElementoName(sessionVHF, appObjects.winTipoUhQuarto);
-
-                //var allTEdit = sessionVHF.FindElementsByClassName(appObjects.TEdit);
-                //Debug.WriteLine($"*** Identificar id dos campos {allTEdit.Count}");
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(9).SendKeys(appObjects.categUhStnd);
 
@@ -477,8 +477,6 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
-            //Thread.Sleep(300);
-
             Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaMsgAtencao);
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnSim).Click();
@@ -490,18 +488,102 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
         }
 
-        public void SairTelaConsultaGeral()
+        public void MaximizarTelaConsultaGeral()
         {
             Elementos.EncontraElementoName(sessionVHF, appObjects.winConsultaGeral);
 
-            Elementos.EncontraElementoName(sessionVHF, "Maximizar").Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnMaximizar).Click();
         }
 
         public void RepetirReserva()
         {
-            Elementos.EncontraElementoName(sessionVHF, "Repetir").Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnRepetir).Click();
         }
-        
-        
+
+        public void VisualizarOrcamentoConsultaGeral()
+        {
+            Elementos.EncontraElementoName(sessionVHF, "Orçamento reservas").Click();
+
+            Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
+
+            var winOrcReservaConsultaGeral = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+            
+            var titleScreenOrcReserva = sessionVHF.FindElementByClassName("TfrmVisualizarOrcamentRes");
+
+            bool screenOrcReserva = false;
+            WindowsElement titleValidado = null;
+
+            if (titleScreenOrcReserva.Text.Equals("Orçamento Reservas"))
+            {
+                screenOrcReserva = true;
+                titleValidado = titleScreenOrcReserva;
+                Console.WriteLine("\nTela do orçamento reserva inicializada pela Consulta Geral.");
+            }
+
+            Assert.IsTrue(screenOrcReserva, "Tela do orçamento reserva NÃO inicializada.");
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
+
+        }
+
+
+        public void VisualizarOrcamentoCaixa()
+        {
+            //var allTBitBtn = sessionVHF.FindElementsByClassName("TBitBtn");
+            //Debug.WriteLine($"*** Identificar TBitBtn {allTBitBtn.Count}");
+
+            Elementos.EncontraElementosClassName(sessionVHF, "TBitBtn").ElementAt(23).Click();
+
+            sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.First());
+            var winSelec = sessionVHF.FindElementByClassName("TfrmMontaSelect");
+
+            var btnRight = sessionVHF.FindElementsByClassName(appObjects.TEdit).ElementAt(0);
+            new Actions(sessionVHF).ContextClick(btnRight).Perform();
+
+            Thread.Sleep(1000);
+
+            new Actions(sessionVHF).MoveToElement(winSelec, 464, 218).Click().Perform();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+            Thread.Sleep(5000);
+
+            Elementos.EncontraElementoName(sessionVHF, "Orçamento reservas").Click();
+
+            Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
+
+            var winOrcReservaCaixa = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+
+            var titleScreenOrcReserva = sessionVHF.FindElementByClassName("TfrmVisualizarOrcamentRes");
+
+            bool screenOrcReserva = false;
+            WindowsElement titleValidado = null;
+
+            if (titleScreenOrcReserva.Text.Equals("Orçamento Reservas"))
+            {
+                screenOrcReserva = true;
+                titleValidado = titleScreenOrcReserva;
+                Console.WriteLine("\nTela do orçamento reserva inicializada pelo VHF Caixa.");
+            }
+
+            Assert.IsTrue(screenOrcReserva, "Tela do orçamento reserva NÃO inicializada.");
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+            
+        }
+
+        public void SairTelaVHFCaixa()
+        {
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
+
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaMsgAtencao);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnSim).Click();
+
+        }
     }
 }

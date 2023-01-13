@@ -42,6 +42,8 @@ namespace VHF.PageObjects
         public string btnSlip = ("Slip");
         public string btnVisualizar = ("Visualizar");
         public string btnEntradaHosp = ("Entrada Hósp.");
+        public string btnMaximizar = ("Maximizar");
+        public string btnRepetir = ("Repetir");
 
         #endregion
 

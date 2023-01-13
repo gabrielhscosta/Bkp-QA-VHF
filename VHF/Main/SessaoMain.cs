@@ -33,11 +33,12 @@ namespace VHF.Main
         }
 
         protected const string WinAppDriverUrl = "http://127.0.0.1:4723";
-        private const string dirAplicacaoVHF = @"C:\Totvs\Hoteis\VHF.exe";
+        protected const string dirAplicacaoVHF = @"C:\Totvs\Hoteis\VHF.exe";
         protected const string dirAplicacaoVHFCaixa = @"C:\Totvs\Hoteis\VHFCaixa.exe";
 
 
         public static WindowsDriver<WindowsElement> sessionVHF;
+        public static WindowsDriver<WindowsElement> sessionVHFCaixa;
 
         [ClassInitialize]
         public static void Setup(TestContext context)
@@ -48,13 +49,7 @@ namespace VHF.Main
             //AppiumServiceBuilder appiumLocalService = new AppiumServiceBuilder();
             //appiumLocalService.UsingPort(4723).Build().Start();
            
-            if (sessionVHF == null)
-            {
-                AppiumOptions options1 = new AppiumOptions();
-                options1.AddAdditionalCapability("app", dirAplicacaoVHF);
-                //sessionVHF = new WindowsDriver<WindowsElement>(appiumLocalService, options1);
-                sessionVHF = new WindowsDriver<WindowsElement>(new Uri(WinAppDriverUrl), options1);
-            }
+            //Inicialização do módulo//
         }
 
         [ClassCleanup]
@@ -62,8 +57,16 @@ namespace VHF.Main
         {
             if (sessionVHF != null)
             {
-                //sessionVHF.Quit();
-                //sessionVHF = null;
+                //sessionVHF.Close();
+                sessionVHF.Quit();
+                sessionVHF = null;
+            }
+
+            if (sessionVHFCaixa != null)
+            {
+                //sessionVHFCaixa.Close();
+                sessionVHFCaixa.Quit();
+                sessionVHFCaixa = null;
             }
 
         }
@@ -74,6 +77,14 @@ namespace VHF.Main
         {
             LoginVHF login = new LoginVHF();
             login.ValidaLoginVHF();
+        }
+
+        [TestMethod, TestCategory("0 - Realizar Login")]
+
+        public void Login_VHF_Caixa()
+        {
+            LoginVHFCaixa loginCaixa = new LoginVHFCaixa();
+            loginCaixa.ValidaLoginVHFCaixa();
         }
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
@@ -246,6 +257,16 @@ namespace VHF.Main
             CN027 alterar = new CN027();
             login.ValidaLoginVHF();
             alterar.UsarBotaoRepetirDaTelaDeSituacaoDeReserva();
+        }
+
+        [TestMethod, TestCategory("2 - Orçamento Reserva")]
+        public void CN029_Validar_Orcamento_Pela_Tela_De_Consulta_Geral_E_VHFCaixa()
+        {
+            LoginVHF login = new LoginVHF();
+            CN029 alterar = new CN029();
+            login.ValidaLoginVHF();
+            alterar.ValidarOrcamentoPelaTelaDeConsultaGeralEVHFCaixa();
+            
         }
     }
 }

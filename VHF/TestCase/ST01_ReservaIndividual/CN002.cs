@@ -45,7 +45,7 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             //realizaConsultas.ValidarFnrhMovimentoHospede();
 
-            validacoes.ValidaOrcamento(appObjects.categUhStnd, 1, 0, 0);
+            validacoes.ValidaOrcamento("stnd", 1, 0, 0);
 
             funcComuns.ValidarTelaPrincipalVhf();
 

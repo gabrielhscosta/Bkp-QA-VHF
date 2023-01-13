@@ -10,6 +10,8 @@ using System.Diagnostics;
 using OpenQA.Selenium;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading;
+using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Windows;
 
 namespace VHF.TestCase.ST00_ValidaLoginModulos
 {
@@ -25,6 +27,11 @@ namespace VHF.TestCase.ST00_ValidaLoginModulos
         {
 
             AppObjects appObjectsVhf = new AppObjects();
+
+            AppiumOptions options1 = new AppiumOptions();
+            options1.AddAdditionalCapability("app", dirAplicacaoVHF);
+            //sessionVHF = new WindowsDriver<WindowsElement>(appiumLocalService, options1);
+            sessionVHF = new WindowsDriver<WindowsElement>(new Uri(WinAppDriverUrl), options1);
 
             #region Usuário e Senha Sistema
 
@@ -42,7 +49,8 @@ namespace VHF.TestCase.ST00_ValidaLoginModulos
             #region Seleciona Empresa
 
 
-            Thread.Sleep(50000);
+            Thread.Sleep(5000);
+
             Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).Clear();
             Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(appObjectsVhf.empresaSys);
             Elementos.EncontraElementosClassName(sessionVHF, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(Keys.Tab);
@@ -53,7 +61,8 @@ namespace VHF.TestCase.ST00_ValidaLoginModulos
 
             #region Janela Atenção
 
-            Thread.Sleep(90000);
+            Thread.Sleep(5000);
+
             Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.txtAlertAtencao);
             Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.btnOK).Click();
 

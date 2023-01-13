@@ -1,32 +1,34 @@
 ﻿using VHF.Main;
 using VHF.CommonMethods;
+using VHF.PageObjects;
 using System;
 using System.Collections.Generic;
-using VHF.PageObjects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VHF.TestCase.ST02_OrcamentoReserva
+namespace VHF.TestCase.ST01_ReservaIndividual
 {
-    public class CN026 : SessaoMain
+    public class CN030 : SessaoMain
     {
-        public CN026()
+        public CN030()
         {
 
         }
 
-        public void EntradaDeHospede()
+        public void ReservaGrupoComContaMaster()
         {
             FuncComuns funcComuns = new FuncComuns();
             Validacoes validacoes = new Validacoes();
             AppObjects appObjects = new AppObjects();
 
-            funcComuns.ChamarAtalho("p", "w");
+            funcComuns.ChamarAtalho("e", "g", "i");
+
+
 
             funcComuns.InserirNumNoites("7");
 
-            funcComuns.PreencherNumUh("ocupado", appObjects.categUhStnd);
+            funcComuns.PreencherUh("ocupado", appObjects.categUhSuite);
 
             funcComuns.InserirDadosHosp();
 
@@ -34,32 +36,17 @@ namespace VHF.TestCase.ST02_OrcamentoReserva
 
             funcComuns.VisualizarOrcamentoRes();
 
-            funcComuns.AlertCartaoConsumo();
-
             funcComuns.ValidarSituacaoRes();
 
             validacoes.ValidaReservaGerada();
 
             validacoes.ValidaNumeroLinhaDoOrc(7);
 
-            validacoes.ValidaOrcamento("stnd", 1, 0, 0);
+            validacoes.ValidaOrcamento("suit", 1, 0, 0);
 
             funcComuns.ValidarTelaPrincipalVhf();
 
-            funcComuns.AbrirTelaConsultaGeral();
-
-            funcComuns.ConultarReserva();
-
-            funcComuns.EntradaHospede();
-
-            validacoes.ValidaNumeroHospedes(2);
-
-            validacoes.ValidaOrcamentoComAlteracao("stnd", 2, 0, 0);
-
-            funcComuns.MaximizarTelaConsultaGeral();
-
-            funcComuns.ValidarTelaPrincipalVhf();
-            
         }
+
     }
 }

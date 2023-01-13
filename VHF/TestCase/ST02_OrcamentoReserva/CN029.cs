@@ -6,27 +6,33 @@ using VHF.PageObjects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VHF.TestCase.ST00_ValidaLoginModulos;
 
 namespace VHF.TestCase.ST02_OrcamentoReserva
 {
-    public class CN026 : SessaoMain
+    public class CN029 : SessaoMain
     {
-        public CN026()
+        public CN029()
         {
 
         }
 
-        public void EntradaDeHospede()
+        public void ValidarOrcamentoPelaTelaDeConsultaGeralEVHFCaixa()
         {
             FuncComuns funcComuns = new FuncComuns();
             Validacoes validacoes = new Validacoes();
             AppObjects appObjects = new AppObjects();
+            LoginVHFCaixa loginCaixa = new LoginVHFCaixa();
 
-            funcComuns.ChamarAtalho("p", "w");
+            funcComuns.ChamarAtalho("e", "i");
 
             funcComuns.InserirNumNoites("7");
 
-            funcComuns.PreencherNumUh("ocupado", appObjects.categUhStnd);
+            funcComuns.PreencherUh(appObjects.btnUhOcupado, appObjects.categUhStnd);
+
+            funcComuns.SelecionarEmpresa();
+
+            funcComuns.SelecionarContrato();
 
             funcComuns.InserirDadosHosp();
 
@@ -34,15 +40,13 @@ namespace VHF.TestCase.ST02_OrcamentoReserva
 
             funcComuns.VisualizarOrcamentoRes();
 
-            funcComuns.AlertCartaoConsumo();
-
             funcComuns.ValidarSituacaoRes();
 
             validacoes.ValidaReservaGerada();
 
             validacoes.ValidaNumeroLinhaDoOrc(7);
 
-            validacoes.ValidaOrcamento("stnd", 1, 0, 0);
+            validacoes.ValidaOrcamento("stnd", 1, 0, 0, "AUTO ACORDO 2022-60");
 
             funcComuns.ValidarTelaPrincipalVhf();
 
@@ -50,16 +54,13 @@ namespace VHF.TestCase.ST02_OrcamentoReserva
 
             funcComuns.ConultarReserva();
 
-            funcComuns.EntradaHospede();
+            funcComuns.VisualizarOrcamentoConsultaGeral();
 
-            validacoes.ValidaNumeroHospedes(2);
+            loginCaixa.ValidaLoginVHFCaixa();
 
-            validacoes.ValidaOrcamentoComAlteracao("stnd", 2, 0, 0);
+            funcComuns.VisualizarOrcamentoCaixa();
 
-            funcComuns.MaximizarTelaConsultaGeral();
-
-            funcComuns.ValidarTelaPrincipalVhf();
-            
+            funcComuns.SairTelaVHFCaixa();
         }
     }
 }
