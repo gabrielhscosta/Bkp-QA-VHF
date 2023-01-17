@@ -106,6 +106,7 @@
     <Compile Include="TestCase\ST01_ReservaIndividual\CN005.cs" />
     <Compile Include="TestCase\ST01_ReservaIndividual\CN011.cs" />
     <Compile Include="TestCase\ST01_ReservaIndividual\CN012.cs" />
+    <Compile Include="TestCase\ST02_OrcamentoReserva\CN210.cs" />
     <Compile Include="TestCase\ST02_OrcamentoReserva\CN029.cs" />
     <Compile Include="TestCase\ST02_OrcamentoReserva\CN027.cs" />
     <Compile Include="TestCase\ST02_OrcamentoReserva\CN026.cs" />

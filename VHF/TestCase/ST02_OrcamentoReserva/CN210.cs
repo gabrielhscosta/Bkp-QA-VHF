@@ -1,34 +1,37 @@
 ﻿using VHF.Main;
 using VHF.CommonMethods;
-using VHF.PageObjects;
 using System;
 using System.Collections.Generic;
+using VHF.PageObjects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VHF.TestCase.ST00_ValidaLoginModulos;
 
-namespace VHF.TestCase.ST01_ReservaIndividual
+namespace VHF.TestCase.ST02_OrcamentoReserva
 {
-    public class CN030 : SessaoMain
+    public class CN210 : SessaoMain
     {
-        public CN030()
+        public CN210()
         {
 
         }
 
-        public void ReservaGrupoComContaMaster()
+        public void ValidarEventoReservaEEventoHospede()
         {
             FuncComuns funcComuns = new FuncComuns();
             Validacoes validacoes = new Validacoes();
             AppObjects appObjects = new AppObjects();
 
-            funcComuns.ChamarAtalho("e", "g", "i");
+            funcComuns.ChamarAtalho("e", "i");
 
-
-            /*
             funcComuns.InserirNumNoites("7");
 
-            funcComuns.PreencherUh("ocupado", appObjects.categUhSuite);
+            funcComuns.PreencherUh(appObjects.btnUhOcupado, appObjects.categUhStnd);
+
+            funcComuns.SelecionarEmpresa();
+
+            funcComuns.SelecionarContrato();
 
             funcComuns.InserirDadosHosp();
 
@@ -36,17 +39,17 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.VisualizarOrcamentoRes();
 
+            funcComuns.VisualizarParteInferiorOrcamentoRes();
+
             funcComuns.ValidarSituacaoRes();
 
             validacoes.ValidaReservaGerada();
 
             validacoes.ValidaNumeroLinhaDoOrc(7);
 
-            validacoes.ValidaOrcamento("suit", 1, 0, 0);
+            validacoes.ValidaOrcamento("stnd", 1, 0, 0, "AUTO ACORDO 2022-60");
 
             funcComuns.ValidarTelaPrincipalVhf();
-            */
         }
-
     }
 }

@@ -306,6 +306,22 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
         }
 
+        public void VisualizarParteInferiorOrcamentoRes()
+        {
+            var oReserva = sessionVHF.FindElementByClassName("TfrmReserva");
+
+            new Actions(sessionVHF).MoveToElement(oReserva, 808, 68).Click().Perform();
+
+            Thread.Sleep(1000);
+
+            new Actions(sessionVHF).MoveToElement(oReserva, 886, 268).Click().Perform();
+
+            //"TfrmDadosOrcamento"
+            //"frmDadosOrcamento"
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+        }
+
         public void AlertCartaoConsumo()
         {
             Thread.Sleep(3000);

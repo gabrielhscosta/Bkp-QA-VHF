@@ -58,15 +58,15 @@ namespace VHF.Main
             if (sessionVHF != null)
             {
                 //sessionVHF.Close();
-                sessionVHF.Quit();
-                sessionVHF = null;
+                //sessionVHF.Quit();
+                //sessionVHF = null;
             }
 
             if (sessionVHFCaixa != null)
             {
                 //sessionVHFCaixa.Close();
-                sessionVHFCaixa.Quit();
-                sessionVHFCaixa = null;
+                //sessionVHFCaixa.Quit();
+                //sessionVHFCaixa = null;
             }
 
         }
@@ -266,7 +266,24 @@ namespace VHF.Main
             CN029 alterar = new CN029();
             login.ValidaLoginVHF();
             alterar.ValidarOrcamentoPelaTelaDeConsultaGeralEVHFCaixa();
-            
+        }
+
+        [TestMethod, TestCategory("2 - Orçamento Reserva")]
+        public void CN210_Validar_EventoReserva_E_EventoHospede()
+        {
+            LoginVHF login = new LoginVHF();
+            CN210 alterar = new CN210();
+            login.ValidaLoginVHF();
+            alterar.ValidarEventoReservaEEventoHospede();
+        }
+
+        [TestMethod, TestCategory("3 - Reserva Grupo")]
+        public void CN030_Reserva_Grupo_Com_Conta_Master()
+        {
+            LoginVHF login = new LoginVHF();
+            CN030 alterar = new CN030();
+            login.ValidaLoginVHF();
+            alterar.ReservaGrupoComContaMaster();
         }
     }
 }
