@@ -27,6 +27,7 @@ namespace VHF.CommonMethods
 
         public static AppiumWebElement numRes;
         public static AppiumWebElement idRes;
+        public static AppiumWebElement numResGrp;
 
         public void ChamarAtalho(string tecla1, string tecla2, string tecla3 = null, string tecla4 = null)
        {
@@ -308,7 +309,7 @@ namespace VHF.CommonMethods
 
         public void VisualizarParteInferiorOrcamentoRes()
         {
-            var oReserva = sessionVHF.FindElementByClassName("TfrmReserva");
+            var oReserva = sessionVHF.FindElementByClassName(appObjects.scrTelaReservaIndiv);
 
             new Actions(sessionVHF).MoveToElement(oReserva, 808, 68).Click().Perform();
 
@@ -386,10 +387,10 @@ namespace VHF.CommonMethods
         
         public void AcessarReserva(string reserva)
         {
-            Elementos.EncontraElementoName(sessionVHF, "Consulta Geral");
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winConsultaGeral);
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(9).SendKeys(reserva);
-            Elementos.EncontraElementoName(sessionVHF, "Procurar").Click();
-            Elementos.EncontraElementoName(sessionVHF, "Editar").Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnEditar).Click();
         }
 
         public void InserirResGridDispo()
@@ -518,18 +519,18 @@ namespace VHF.CommonMethods
 
         public void VisualizarOrcamentoConsultaGeral()
         {
-            Elementos.EncontraElementoName(sessionVHF, "Orçamento reservas").Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnOrcReservas).Click();
 
             Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
 
             var winOrcReservaConsultaGeral = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
             
-            var titleScreenOrcReserva = sessionVHF.FindElementByClassName("TfrmVisualizarOrcamentRes");
+            var titleScreenOrcReserva = sessionVHF.FindElementByClassName(appObjects.scrTelaOrcReserva);
 
             bool screenOrcReserva = false;
             WindowsElement titleValidado = null;
 
-            if (titleScreenOrcReserva.Text.Equals("Orçamento Reservas"))
+            if (titleScreenOrcReserva.Text.Equals(appObjects.winOrcReservas))
             {
                 screenOrcReserva = true;
                 titleValidado = titleScreenOrcReserva;
@@ -541,19 +542,15 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
-
         }
 
 
         public void VisualizarOrcamentoCaixa()
         {
-            //var allTBitBtn = sessionVHF.FindElementsByClassName("TBitBtn");
-            //Debug.WriteLine($"*** Identificar TBitBtn {allTBitBtn.Count}");
-
-            Elementos.EncontraElementosClassName(sessionVHF, "TBitBtn").ElementAt(23).Click();
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(23).Click();
 
             sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.First());
-            var winSelec = sessionVHF.FindElementByClassName("TfrmMontaSelect");
+            var winSelec = sessionVHF.FindElementByClassName(appObjects.scrMontaSelect);
 
             var btnRight = sessionVHF.FindElementsByClassName(appObjects.TEdit).ElementAt(0);
             new Actions(sessionVHF).ContextClick(btnRight).Perform();
@@ -568,18 +565,18 @@ namespace VHF.CommonMethods
 
             Thread.Sleep(5000);
 
-            Elementos.EncontraElementoName(sessionVHF, "Orçamento reservas").Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnOrcReservas).Click();
 
             Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
 
             var winOrcReservaCaixa = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
 
-            var titleScreenOrcReserva = sessionVHF.FindElementByClassName("TfrmVisualizarOrcamentRes");
+            var titleScreenOrcReserva = sessionVHF.FindElementByClassName(appObjects.winOrcReservas);
 
             bool screenOrcReserva = false;
             WindowsElement titleValidado = null;
 
-            if (titleScreenOrcReserva.Text.Equals("Orçamento Reservas"))
+            if (titleScreenOrcReserva.Text.Equals(appObjects.scrTelaOrcReserva))
             {
                 screenOrcReserva = true;
                 titleValidado = titleScreenOrcReserva;
@@ -588,8 +585,7 @@ namespace VHF.CommonMethods
 
             Assert.IsTrue(screenOrcReserva, "Tela do orçamento reserva NÃO inicializada.");
 
-            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
-            
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();    
         }
 
         public void SairTelaVHFCaixa()
@@ -599,7 +595,109 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaMsgAtencao);
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnSim).Click();
-
         }
+
+        public void InserirNomeGrupo()
+        {
+            var dadosEmp = GeradorDadosFakes.ListaDadosFakerEmpresa();
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TwwDBEdit).ElementAt(7).SendKeys(dadosEmp.PrefixoCompany);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TwwDBEdit).ElementAt(7).SendKeys(dadosEmp.NomeCompany);
+        }
+
+        public void InserirNumNoitesResGrupo(string qtdNoites)
+        {
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(2).SendKeys(qtdNoites);
+        }
+
+        public void SelecionarEmpresaResGrupo()
+        {
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(35).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winSelecCliente);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(10).SendKeys(appObjects.docCliente);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+        }
+
+        public void SelecionarContratoResGrupo()
+        {
+            Elementos.EncontraElementosName(sessionVHF, appObjects.btnContrato).ElementAt(2).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winContratoCliente);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnOK).Click();
+
+            Elementos.EncontraElementosName(sessionVHF, appObjects.btnContrato).ElementAt(0).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winContatosCliente);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+        }
+
+        public void InserirDocConfirmacaoResGrupo()
+        {
+            Elementos.EncontraElementoName(sessionVHF, "Reserva de Grupo");
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(4).SendKeys(appObjects.docEmail);
+
+            var emailConfirResGrp = GeradorDadosFakes.ListaDadosFakerPessoa();
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TwwDBEdit).ElementAt(1).SendKeys(emailConfirResGrp.EmailFaker);
+
+            Elementos.EncontraElementoName(sessionVHF, "Abre Master").Click();
+        }
+
+        public void InserirAcomodacoes()
+        {
+            Elementos.EncontraElementoName(sessionVHF, "Incluir").Click();
+
+            //var allTwwDBEdit = sessionVHF.FindElementsByClassName(appObjects.TwwDBEdit);
+            //Debug.WriteLine($"*** Identificar os campos edit reserva grupo {allTwwDBEdit.Count}");
+
+            //var allTCMDBLookupCombo = sessionVHF.FindElementsByClassName(appObjects.TCMDBLookupCombo);
+            //Debug.WriteLine($"*** Identificar os campos edit reserva grupo {allTCMDBLookupCombo.Count}");
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TwwDBEdit).ElementAt(8).SendKeys("2");
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(8).SendKeys(appObjects.categUhStnd);
+
+            sessionVHF.FindElementsByClassName(appObjects.TCMDBLookupCombo).ElementAt(8).SendKeys(Keys.Tab);
+
+            sessionVHF.FindElementsByClassName(appObjects.TCMDBLookupCombo).ElementAt(7).SendKeys(Keys.Tab);
+
+            Elementos.EncontraElementosName(sessionVHF, appObjects.btnConfirmar).ElementAt(1).Click();
+
+            Elementos.EncontraElementosName(sessionVHF, appObjects.btnConfirmar).ElementAt(0).Click();
+        }
+
+        public void ValidarSituacaoResGrupo()
+        {
+            Thread.Sleep(1000);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winSitReserva);
+
+            Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
+
+            var winSitRes = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+
+            var sitRes = sessionVHF.FindElementByName(appObjects.winSitReserva);
+
+            var editSitRes = sitRes.FindElementsByClassName(appObjects.TEdit);
+
+            var allTEdit = sessionVHF.FindElementsByClassName(appObjects.TEdit);
+            Debug.WriteLine($"*** Identificar os campos edit reserva grupo {allTEdit.Count}");
+
+            numResGrp = editSitRes.ElementAt(4);
+            new Actions(sessionVHF).MoveToElement(numResGrp).DoubleClick().Perform();
+            numResGrp.SendKeys(Keys.Control + "c");
+            numResGrp.SendKeys(Keys.Control + "v");
+
+            Console.WriteLine("Numero de Reserva Gerado: " + numResGrp.Text);
+        }
+
     }
 }

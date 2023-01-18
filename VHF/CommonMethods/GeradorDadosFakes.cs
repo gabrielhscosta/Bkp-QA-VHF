@@ -25,8 +25,21 @@ namespace VHF.CommonMethods
             var pessoa = dadosFaker.Generate();
 
             return pessoa;
-
         }
 
+        public static EmpresaFake ListaDadosFakerEmpresa()
+        {
+            var dadosFaker = new Faker<EmpresaFake>("pt_BR").StrictMode(true)
+                .RuleFor(e => e.CNPJFaker, f => f.Company.Cnpj())
+                .RuleFor(e => e.PrefixoCompany, f => "GRP") //f.Company.CompanySuffix())
+                .RuleFor(e => e.NomeCompany, f => f.Company.CompanyName())
+                .RuleFor(e => e.EmailFaker, f => f.Internet.Email(f.Person.FirstName, f.Person.LastName).ToLower())
+                .RuleFor(e => e.CidadeFaker, f => "Maceio")
+                .RuleFor(e => e.TelefoneFaker, f => f.Phone.PhoneNumber());
+            var empresa = dadosFaker.Generate();
+
+            return empresa;
+
+        }
     }
 }

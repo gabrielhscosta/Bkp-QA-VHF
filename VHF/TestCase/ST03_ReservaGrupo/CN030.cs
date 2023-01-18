@@ -24,28 +24,29 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.ChamarAtalho("e", "g", "i");
 
+            funcComuns.InserirNomeGrupo();
 
-            /*
-            funcComuns.InserirNumNoites("7");
+            funcComuns.InserirNumNoitesResGrupo("7");
 
-            funcComuns.PreencherUh("ocupado", appObjects.categUhSuite);
+            funcComuns.SelecionarEmpresaResGrupo();
 
-            funcComuns.InserirDadosHosp();
+            funcComuns.SelecionarContratoResGrupo();
 
-            funcComuns.InserirDocConfirmacao();
+            funcComuns.InserirDocConfirmacaoResGrupo();
 
-            funcComuns.VisualizarOrcamentoRes();
+            funcComuns.InserirAcomodacoes();
 
-            funcComuns.ValidarSituacaoRes();
+            funcComuns.ValidarSituacaoResGrupo();
 
-            validacoes.ValidaReservaGerada();
+            validacoes.ValidaReservaGrpGerada();
 
-            validacoes.ValidaNumeroLinhaDoOrc(7);
+            validacoes.ValidaContaMasterReservaGrp("S");
 
-            validacoes.ValidaOrcamento("suit", 1, 0, 0);
+            validacoes.ValidaNumeroLinhaDoOrcGrp(7);
+
+            validacoes.ValidaOrcamentoGrp("stnd", 1, 0, 0, "AUTO ACORDO 2022-60");
 
             funcComuns.ValidarTelaPrincipalVhf();
-            */
         }
 
     }

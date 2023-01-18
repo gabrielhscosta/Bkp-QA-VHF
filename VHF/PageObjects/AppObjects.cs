@@ -44,6 +44,7 @@ namespace VHF.PageObjects
         public string btnEntradaHosp = ("Entrada Hósp.");
         public string btnMaximizar = ("Maximizar");
         public string btnRepetir = ("Repetir");
+        public string btnOrcReservas = ("Orçamento reservas");
 
         #endregion
 
@@ -88,6 +89,8 @@ namespace VHF.PageObjects
         public string scrTelaMsgAtencao = ("TMessageForm");
         public string scrTelaDirecDespesas = ("TfrmCxDirecionaDesp");
         public string scrTelaEntradaHosp = ("TfrmEntradaHosp");
+        public string scrTelaReservaIndiv = ("TfrmReserva");
+        public string scrTelaOrcReserva = ("TfrmVisualizarOrcamentRes");
 
 
         #endregion
@@ -108,10 +111,13 @@ namespace VHF.PageObjects
         public string winSitReserva = ("Situação da Reserva");
         public string winSelecCliente = ("Seleciona");
         public string winContratoCliente = ("Contratos da Empresa");
+        public string winContatosCliente = ("Contatos");
         public string winDirecDespesas = ("Direcionamento de Despesas");
         public string winSlipReserva = ("TfrmSlipDlg");
         public string winConsultaGeral = ("Consulta Geral");
-
+        public string winOrcReservas = ("Orçamento Reservas");
+        
+        
         #endregion
 
 

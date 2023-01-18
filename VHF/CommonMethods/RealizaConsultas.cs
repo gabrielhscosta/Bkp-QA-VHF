@@ -206,6 +206,130 @@ namespace VHF.CommonMethods
 
             return lista;
         }
+
+        public string SelectValidarReservaGrpGerada()
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            string getReservaGrp = null;
+
+            cmd.CommandText = "select IdReservaGrupo" +
+                        " from reservagrupo" +
+                        " where idHotel = 1" +
+                        " and IdReservaGrupo = " + FuncComuns.numResGrp.Text +
+                        " order by IdReservaGrupo desc";
+
+            try
+            {
+                cmd.Connection = conexaoBd.conectar();
+                getReservaGrp = (cmd.ExecuteScalar()).ToString();
+                conexaoBd.desconectar();
+            }
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return getReservaGrp;
+        }
+
+        public string SelectValidarContaMasterReservaGrp()
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            string getAbreMaster = null;
+
+            cmd.CommandText = "select AbreMaster" +
+                        " from reservagrupo" +
+                        " where idHotel = 1" +
+                        " and IdReservaGrupo = " + FuncComuns.numResGrp.Text;
+
+            try
+            {
+                cmd.Connection = conexaoBd.conectar();
+                getAbreMaster = (cmd.ExecuteScalar()).ToString();
+                conexaoBd.desconectar();
+            }
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return getAbreMaster;
+        }
+
+        public int SelectValidarNumeroLinhasOrcamentoGrp()
+        {
+            SqlCommand cmd1 = new SqlCommand();
+
+            int lineOrcGrp = 0;
+
+            cmd1.CommandText = "select COUNT(*) from RESERVAGRUPO rg, ORCAMENTORESERVAGRP og " +
+                "where rg.idhotel = 1 and rg.IdReservaGrupo =  " + FuncComuns.numResGrp.Text +
+                "and rg.idhotel = og.idhotel " +
+                "and rg.IdReservaGrupo = og.IdReservaGrupo";
+
+            try
+            {
+                cmd1.Connection = conexaoBd.conectar();
+                lineOrcGrp = (int)(cmd1.ExecuteScalar());
+                conexaoBd.desconectar();
+            }
+
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return lineOrcGrp;
+        }
+
+        public List<TarifaConsulta> SelectValidarValorOrcamentoGrp()
+        {
+            SqlCommand cmd2 = new SqlCommand();
+
+            SqlDataReader reader = null;
+
+            List<TarifaConsulta> lista = null;
+
+            cmd2.CommandText = "select t.Descricao, oc.VALOR, oc.VALORTARIFA " +
+                "from RESERVAGRUPO r, ORCAMENTORESERVAGRP oc, TARIFAHOTEL t " +
+                "where r.idhotel = 1 " +
+                "and r.IdReservaGrupo = " + FuncComuns.numResGrp.Text +
+                "and r.idhotel = oc.idhotel " +
+                "and r.IdReservaGrupo = oc.IdReservaGrupo " +
+                "and oc.IdHotel = t.IdHotel " +
+                "and oc.idTarifa = t.idTarifa " +
+                "order by data asc ";
+
+            try
+            {
+                cmd2.Connection = conexaoBd.conectar();
+                reader = (cmd2.ExecuteReader());
+                lista = new List<TarifaConsulta>();
+
+
+                while (reader.Read())
+                {
+                    var tmp = new TarifaConsulta();
+                    tmp.Descricao = reader["Descricao"].ToString();
+                    tmp.Valor = Convert.ToInt32(reader["VALOR"]);
+                    tmp.ValorTarifa = Convert.ToInt32(reader["VALORTARIFA"]);
+                    lista.Add(tmp);
+
+                }
+                conexaoBd.desconectar();
+
+            }
+
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return lista;
+        }
+
     }
 
     public class TarifaConsulta

@@ -48,8 +48,13 @@ namespace VHF.Main
 
             //AppiumServiceBuilder appiumLocalService = new AppiumServiceBuilder();
             //appiumLocalService.UsingPort(4723).Build().Start();
-           
+
             //Inicialização do módulo//
+
+            AppiumOptions options1 = new AppiumOptions();
+            options1.AddAdditionalCapability("app", dirAplicacaoVHF);
+            //sessionVHF = new WindowsDriver<WindowsElement>(appiumLocalService, options1);
+            sessionVHF = new WindowsDriver<WindowsElement>(new Uri(WinAppDriverUrl), options1);
         }
 
         [ClassCleanup]

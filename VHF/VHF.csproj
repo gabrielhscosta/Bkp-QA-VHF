@@ -85,7 +85,7 @@
     <Compile Include="CommonMethods\Elementos.cs" />
     <Compile Include="CommonMethods\FuncComuns.cs" />
     <Compile Include="CommonMethods\GeradorDadosFakes.cs" />
-    <Compile Include="CommonMethods\HospedeFake.cs" />
+    <Compile Include="CommonMethods\CamposFake.cs" />
     <Compile Include="CommonMethods\RealizaConsultas.cs" />
     <Compile Include="CommonMethods\RegistroBase.cs" />
     <Compile Include="CommonMethods\Validacoes.cs" />

@@ -28,11 +28,6 @@ namespace VHF.TestCase.ST00_ValidaLoginModulos
 
             AppObjects appObjectsVhf = new AppObjects();
 
-            AppiumOptions options1 = new AppiumOptions();
-            options1.AddAdditionalCapability("app", dirAplicacaoVHF);
-            //sessionVHF = new WindowsDriver<WindowsElement>(appiumLocalService, options1);
-            sessionVHF = new WindowsDriver<WindowsElement>(new Uri(WinAppDriverUrl), options1);
-
             #region Usuário e Senha Sistema
 
             var anexLogin = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
