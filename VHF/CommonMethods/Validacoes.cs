@@ -219,5 +219,11 @@ namespace VHF.CommonMethods
                 Assert.AreEqual(soma, t.ValorTarifa);
             }
         }
+
+        public void ValidaDirecionamentoDespesasGrp(int qtdDespesas)
+        {
+            int linhasDirecGrp = realizaConsultas.SelectValidaDirecionamentoDespesasGrp();
+            Assert.AreEqual(qtdDespesas, linhasDirecGrp);
+        }
     }
 }

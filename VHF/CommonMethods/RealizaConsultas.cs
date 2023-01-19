@@ -330,6 +330,43 @@ namespace VHF.CommonMethods
             return lista;
         }
 
+        public int SelectValidaDirecionamentoDespesasGrp()
+        {
+            SqlCommand cmd3 = new SqlCommand();
+
+            int lineDirecGrp = 0;
+
+            cmd3.CommandText = "select count (*) from DIRDESGRPEMP d, TipoDebCredHotel t, RESERVAGRUPO r, contasfront c" +
+                        " where d.idhotel = 1" +
+                        " and r.IdReservaGrupo = " + FuncComuns.numResGrp.Text +
+                        " and d.IdContaGrupo = c.idconta" +
+                        " and r.IdReservaGrupo = c.IdReservaGrupo" +
+                        " and d.idhotel = t.idhotel" +
+                        " and d.idtipodebcred = t.idtipodebcred" +
+                        " order by 1 desc";
+
+            /*  SELECT T.DESCRICAO, D.IDDIRDESPGRPEMP, D.IDHOTEL, D.IDTIPODEBCRED,  D.IDCONTAGRUPO, D.DATAINICIO, D.DATAFIM, D.HORAFIM, D.IDRESERVAGRUPO,  
+               D.INCLUIALCOOL, D.PERCENTUAL, T.FLGPDVSERVICO, T.PDVALIMENTO, T.DEBITOCREDITO
+               FROM TIPODEBCREDHOTEL T, DIRDESGRPEMP D
+               WHERE D.IDRESERVAGRUPO = + FuncComuns.numResGrp.Text +
+               AND T.IDTIPODEBCRED = D.IDTIPODEBCRED
+               AND T.IDHOTEL = D.IDHOTEL
+               ORDER BY  T.ORDEMDIRECDESP, T.DESCRICAO */
+
+            try
+            {
+                cmd3.Connection = conexaoBd.conectar();
+                lineDirecGrp = (int)(cmd3.ExecuteScalar());
+                conexaoBd.desconectar();
+            }
+
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return lineDirecGrp;
+        }       
     }
 
     public class TarifaConsulta

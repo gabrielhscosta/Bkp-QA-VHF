@@ -113,6 +113,7 @@
     <Compile Include="TestCase\ST02_OrcamentoReserva\CN020.cs" />
     <Compile Include="TestCase\ST02_OrcamentoReserva\CN021.cs" />
     <Compile Include="TestCase\ST02_OrcamentoReserva\CN022.cs" />
+    <Compile Include="TestCase\ST03_ReservaGrupo\CN031.cs" />
     <Compile Include="TestCase\ST03_ReservaGrupo\CN030.cs" />
   </ItemGroup>
   <ItemGroup>

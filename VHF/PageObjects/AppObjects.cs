@@ -113,6 +113,7 @@ namespace VHF.PageObjects
         public string winContratoCliente = ("Contratos da Empresa");
         public string winContatosCliente = ("Contatos");
         public string winDirecDespesas = ("Direcionamento de Despesas");
+        public string winDirecDespesasGrp = ("Direcionamento de Despesas de Grupo");
         public string winSlipReserva = ("TfrmSlipDlg");
         public string winConsultaGeral = ("Consulta Geral");
         public string winOrcReservas = ("Orçamento Reservas");

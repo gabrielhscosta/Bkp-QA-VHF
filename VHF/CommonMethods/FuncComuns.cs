@@ -458,7 +458,6 @@ namespace VHF.CommonMethods
             new Actions(sessionVHF).MoveToElement(selecDirecDesp, 396, 176).Click().Perform();
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
-
         }
 
         public void VisualizarSlipDeReserva()
@@ -676,27 +675,63 @@ namespace VHF.CommonMethods
 
         public void ValidarSituacaoResGrupo()
         {
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
 
-            Elementos.EncontraElementoName(sessionVHF, appObjects.winSitReserva);
+            sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+
+            var sitResGrp = sessionVHF.FindElementByName(appObjects.winSitReserva);
 
             Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
 
-            var winSitRes = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+            var winSitResGrp = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
 
-            var sitRes = sessionVHF.FindElementByName(appObjects.winSitReserva);
+            var editSitResGrp = sitResGrp.FindElementsByClassName(appObjects.TEdit);
 
-            var editSitRes = sitRes.FindElementsByClassName(appObjects.TEdit);
-
-            var allTEdit = sessionVHF.FindElementsByClassName(appObjects.TEdit);
-            Debug.WriteLine($"*** Identificar os campos edit reserva grupo {allTEdit.Count}");
-
-            numResGrp = editSitRes.ElementAt(4);
+            numResGrp = editSitResGrp.ElementAt(4);
             new Actions(sessionVHF).MoveToElement(numResGrp).DoubleClick().Perform();
             numResGrp.SendKeys(Keys.Control + "c");
             numResGrp.SendKeys(Keys.Control + "v");
 
             Console.WriteLine("Numero de Reserva Gerado: " + numResGrp.Text);
+        }
+
+        public void InserirDirecioamentoDeDespesasResGrupo()
+        {
+            Thread.Sleep(3000);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winSitReserva);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnContaDirec).Click();
+
+            Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
+
+            var winDirecDesp = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+            winDirecDesp.Manage().Window.Maximize();
+
+            var selecDirecDesp = sessionVHF.FindElementByName(appObjects.winDirecDespesasGrp);
+
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 140).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 170).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 196).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 220).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 246).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 284).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 320).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 346).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 370).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 396).Click().Perform();
+            //new Actions(sessionVHF).MoveToElement(selecDirecDesp, 112, 420).Click().Perform();
+
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 350, 280).Click().Perform();
+            new Actions(sessionVHF).MoveToElement(selecDirecDesp, 396, 176).Click().Perform();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaMsgAtencao);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnOK).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
         }
 
     }

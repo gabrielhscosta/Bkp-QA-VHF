@@ -290,5 +290,16 @@ namespace VHF.Main
             login.ValidaLoginVHF();
             alterar.ReservaGrupoComContaMaster();
         }
+
+        [TestMethod, TestCategory("3 - Reserva Grupo")]
+        public void CN031_Reserva_Grupo_Com_Direcionamento_De_Despesas()
+        {
+            LoginVHF login = new LoginVHF();
+            CN031 alterar = new CN031();
+            login.ValidaLoginVHF();
+            alterar.ReservaGrupoComDirecionamentoDeDespesas();
+        }
+
+        
     }
 }
