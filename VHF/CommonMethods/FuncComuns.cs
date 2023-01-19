@@ -657,9 +657,6 @@ namespace VHF.CommonMethods
             //var allTwwDBEdit = sessionVHF.FindElementsByClassName(appObjects.TwwDBEdit);
             //Debug.WriteLine($"*** Identificar os campos edit reserva grupo {allTwwDBEdit.Count}");
 
-            //var allTCMDBLookupCombo = sessionVHF.FindElementsByClassName(appObjects.TCMDBLookupCombo);
-            //Debug.WriteLine($"*** Identificar os campos edit reserva grupo {allTCMDBLookupCombo.Count}");
-
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TwwDBEdit).ElementAt(8).SendKeys("2");
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(8).SendKeys(appObjects.categUhStnd);
@@ -675,7 +672,7 @@ namespace VHF.CommonMethods
 
         public void ValidarSituacaoResGrupo()
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
 
@@ -733,6 +730,5 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
         }
-
     }
 }

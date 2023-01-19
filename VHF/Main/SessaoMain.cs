@@ -49,7 +49,7 @@ namespace VHF.Main
             //AppiumServiceBuilder appiumLocalService = new AppiumServiceBuilder();
             //appiumLocalService.UsingPort(4723).Build().Start();
 
-            //Inicialização do módulo//
+            // *** Inicialização do módulo ***
 
             AppiumOptions options1 = new AppiumOptions();
             options1.AddAdditionalCapability("app", dirAplicacaoVHF);
@@ -300,6 +300,15 @@ namespace VHF.Main
             alterar.ReservaGrupoComDirecionamentoDeDespesas();
         }
 
+        [TestMethod, TestCategory("3 - Reserva Grupo")]
+        public void CN032_Validar_Anexo_Na_Reserva_De_Grupo()
+        {
+            LoginVHF login = new LoginVHF();
+            CN032 alterar = new CN032();
+            login.ValidaLoginVHF();
+            alterar.ValidarAnexoNaReservaDeGrupo();
+        }
         
+
     }
 }

@@ -101,10 +101,7 @@ namespace VHF.CommonMethods
 
         public void ValidaSlipDeReserva()
         {
-            Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
-
-            var winVisualSlip = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
-            //winVisualSlip.Manage().Window.Maximize();
+            sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
 
             var validaImpSlip = sessionVHF.FindElementByName("Visualizando impressão");
 
@@ -224,6 +221,17 @@ namespace VHF.CommonMethods
         {
             int linhasDirecGrp = realizaConsultas.SelectValidaDirecionamentoDespesasGrp();
             Assert.AreEqual(qtdDespesas, linhasDirecGrp);
+        }
+
+        public void ValidaSlipDeReservaGrp()
+        {
+            sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+
+            var validaImpSlip = sessionVHF.FindElementByClassName("TFrmPreview");
+
+            validaImpSlip.FindElementByName(appObjetcs.btnFechar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjetcs.btnSair).Click();
         }
     }
 }
