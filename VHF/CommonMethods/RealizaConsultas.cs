@@ -336,7 +336,7 @@ namespace VHF.CommonMethods
 
             int lineDirecGrp = 0;
 
-            cmd3.CommandText = "select count (*) from DIRDESGRPEMP d, TipoDebCredHotel t, RESERVAGRUPO r, contasfront c" +
+            cmd3.CommandText = "select count (*) from DirDesGrpEmp d, TipoDebCredHotel t, ReservaGrupo r, contasfront c" +
                         " where d.idhotel = 1" +
                         " and r.IdReservaGrupo = " + FuncComuns.numResGrp.Text +
                         " and d.IdContaGrupo = c.idconta" +
