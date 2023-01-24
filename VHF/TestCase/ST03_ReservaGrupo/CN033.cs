@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace VHF.TestCase.ST01_ReservaIndividual
 {
-    public class CN032 : SessaoMain
+    public class CN033 : SessaoMain
     {
-        public CN032()
+        public CN033()
         {
 
         }
 
-        public void ValidarAnexoNaReservaDeGrupo()
+        public void ValidarSlipNaReservaDeGrupo()
         {
             FuncComuns funcComuns = new FuncComuns();
             Validacoes validacoes = new Validacoes();
@@ -36,8 +36,6 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.InserirAcomodacoes();
 
-            /*
-
             funcComuns.ValidarSituacaoResGrupo();
 
             validacoes.ValidaReservaGrpGerada();
@@ -48,9 +46,11 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             validacoes.ValidaOrcamentoGrp("stnd", 1, 0, 0, "AUTO ACORDO 2022-60");
 
+            funcComuns.VisualizarSlipDeReserva();
+
+            validacoes.ValidaSlipDeReservaGrp();
+
             funcComuns.ValidarTelaPrincipalVhf();
-            
-            */
         }
 
     }

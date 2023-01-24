@@ -301,12 +301,21 @@ namespace VHF.Main
         }
 
         [TestMethod, TestCategory("3 - Reserva Grupo")]
-        public void CN032_Validar_Anexo_Na_Reserva_De_Grupo()
+        public void CN032_Validar_Slip_Na_Reserva_De_Grupo()
         {
             LoginVHF login = new LoginVHF();
             CN032 alterar = new CN032();
             login.ValidaLoginVHF();
             alterar.ValidarAnexoNaReservaDeGrupo();
+        }
+
+        [TestMethod, TestCategory("3 - Reserva Grupo")]
+        public void CN033_Validar_Slip_Na_Reserva_De_Grupo()
+        {
+            LoginVHF login = new LoginVHF();
+            CN033 alterar = new CN033();
+            login.ValidaLoginVHF();
+            alterar.ValidarSlipNaReservaDeGrupo();
         }
         
 
