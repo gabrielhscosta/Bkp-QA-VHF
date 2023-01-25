@@ -34,6 +34,8 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.InserirDocConfirmacaoResGrupo();
 
+            funcComuns.SelecionarAbreMasterResGrupo();
+
             funcComuns.InserirAcomodacoes();
 
             funcComuns.ValidarSituacaoResGrupo();

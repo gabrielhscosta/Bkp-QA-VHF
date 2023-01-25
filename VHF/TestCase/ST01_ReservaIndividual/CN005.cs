@@ -28,7 +28,7 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.PreencherUh("ocupado", appObjects.categUhSuite);
 
-            funcComuns.InserirDadosHosp(tipoDeHospede:"Uso da Casa");
+            funcComuns.InserirDadosHospUsoDaCasa(tipoDeHospede:"Uso da Casa");
 
             funcComuns.InserirDocConfirmacao();
 

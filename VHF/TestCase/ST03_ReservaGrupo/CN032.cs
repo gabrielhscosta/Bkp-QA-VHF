@@ -34,10 +34,14 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.InserirDocConfirmacaoResGrupo();
 
-            funcComuns.InserirAcomodacoes();
+            funcComuns.SelecionarAbreMasterResGrupo();
+
+            funcComuns.InserirAnexoResGrupo();
 
             /*
 
+            funcComuns.InserirAcomodacoes();
+            
             funcComuns.ValidarSituacaoResGrupo();
 
             validacoes.ValidaReservaGrpGerada();

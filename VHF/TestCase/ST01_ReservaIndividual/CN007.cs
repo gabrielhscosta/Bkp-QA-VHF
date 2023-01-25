@@ -39,7 +39,6 @@ namespace VHF.TestCase.ST01_ReservaIndividual
             funcComuns.ValidarTelaPrincipalVhf();
 
             funcComuns.ValidarTelaPrincipalVhf();
-
         }
 
     }

@@ -165,6 +165,15 @@ namespace VHF.PageObjects
         #endregion
 
 
+        #region Diretorios
+
+        public string direcAnexo = @"C:\Users\gabriel.dacosta\Source\Repos\QA-VHF\VHF\DocAnexo\logo_totvs.jpg";
+        
+        #endregion
+
+
+
+
 
     }
 }

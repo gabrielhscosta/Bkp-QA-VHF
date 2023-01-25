@@ -145,6 +145,7 @@ namespace VHF.CommonMethods
                 Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(0).SendKeys("CAMAREIRA 1");
                 Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
                 Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+                Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(47).Click();
             }
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnCidade).Click();
@@ -161,12 +162,45 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
-            var tmp = Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
+        }
+
+        public void InserirDadosHospUsoDaCasa(string tipoDeHospede = "Particular")
+        {
+            var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
 
-            //Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).Last().Click();
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(19).SendKeys(dadosHosp.NomeFaker);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(20).SendKeys(dadosHosp.SobrenomeFaker);
 
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(18).SendKeys(dadosHosp.EmailFaker);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(1).SendKeys(dadosHosp.TratamentoHosp);
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(2).Clear();
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TCMDBLookupCombo).ElementAt(2).SendKeys(tipoDeHospede);
+
+            Elementos.EncontraElementoName(sessionVHF, "funcionario").Click();
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(0).SendKeys("CAMAREIRA 1");
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnCidade).Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winSelecCidade);
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TEdit).ElementAt(6).SendKeys(dadosHosp.CidadeFaker);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnIdioma).Click();
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winIdiomaHosp);
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.TEdit).SendKeys(appObjects.idiomaHosp);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(47).Click();
         }
 
         public void InserirDadosHospDaReservaPeloGrid()
@@ -244,7 +278,6 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TBitBtn).ElementAt(46).Click();
-
         }
 
         public void InserirSegmentoHospede(string tipoDeSegmento)
@@ -269,7 +302,7 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TDBEdit).ElementAt(0).SendKeys(cri2);
 
             Elementos.EncontraElementoName(sessionVHF, "Confirmação");
-            Elementos.EncontraElementoName(sessionVHF, "Sim").Click();
+            //Elementos.EncontraElementoName(sessionVHF, "Sim").Click();
         }
 
         public void InserirDocConfirmacao()
@@ -395,6 +428,8 @@ namespace VHF.CommonMethods
 
         public void InserirResGridDispo()
         {
+            Thread.Sleep(30000);
+
             var gridDisp = sessionVHF.FindElementByClassName(appObjects.scrTelaPrincipal);
 
             var resDisp = gridDisp.FindElementByClassName(appObjects.scrTelaResDisp);
@@ -413,6 +448,8 @@ namespace VHF.CommonMethods
 
         public void InserirResGridDispoUtilizandoSugestaoTarifaria()
         {
+            Thread.Sleep(30000);
+
             var gridDisp = sessionVHF.FindElementByClassName(appObjects.scrTelaPrincipal);
 
             var resDisp = gridDisp.FindElementByClassName(appObjects.scrTelaResDisp);
@@ -424,18 +461,20 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaSugereTarifa);
 
-            Elementos.EncontraElementoName(sessionVHF, appObjects.btnReservarGrid).Click();
+            sessionVHF.FindElementsByName(appObjects.btnReservarGrid);
 
-            Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaMsgAtencao);
+            Elementos.EncontraElementosName(sessionVHF, appObjects.btnReservarGrid).ElementAt(0).Click();
 
-            Elementos.EncontraElementoName(sessionVHF, appObjects.btnOK).Click();
+            //Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrTelaMsgAtencao);
+
+            //Elementos.EncontraElementoName(sessionVHF, appObjects.btnOK).Click();
         }
 
         public void InserirDirecioamentoDeDespesas()
         {
-            Elementos.EncontraElementoName(sessionVHF, appObjects.btnContaDirec).Click();
+            Thread.Sleep(3000);
 
-            Debug.WriteLine($"*** Identificar janelas {sessionVHF.WindowHandles}");
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnContaDirec).Click();
 
             var winDirecDesp = sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
             winDirecDesp.Manage().Window.Maximize();
@@ -647,6 +686,10 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementosClassName(sessionVHF, appObjects.TwwDBEdit).ElementAt(1).SendKeys(emailConfirResGrp.EmailFaker);
 
+        }
+
+        public void SelecionarAbreMasterResGrupo()
+        {     
             Elementos.EncontraElementoName(sessionVHF, "Abre Master").Click();
         }
 
@@ -729,6 +772,34 @@ namespace VHF.CommonMethods
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnOK).Click();
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
+        }
+
+        public void InserirAnexoResGrupo()
+        {
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winSitReserva);
+
+            Elementos.EncontraElementoName(sessionVHF, "Anexos").Click();
+
+            sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+
+            var cadasAnexo = sessionVHF.FindElementByName("Cadastro de Anexos");
+
+            new Actions(sessionVHF).MoveToElement(cadasAnexo, 544, 54).Click().Perform();
+
+            Thread.Sleep(3000);
+
+            sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+
+            var selecAnexo = sessionVHF.FindElementByName("Selecione Anexo");
+
+            //Elementos.EncontraElementoAutomationId(sessionVHF, "1148").SendKeys(appObjects.direcAnexo);
+
+            selecAnexo.FindElementByAccessibilityId("1148").SendKeys(appObjects.direcAnexo);
+
+            Elementos.EncontraElementoName(sessionVHF, "Abrir").Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
         }
     }
 }

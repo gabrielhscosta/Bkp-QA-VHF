@@ -104,5 +104,35 @@ namespace VHF.CommonMethods
             waitForMe.Until(pred => elementos.Count() != 0);
             return elementos;
         }
+
+        public static WindowsElement EncontraElementoAutomationId(
+            this WindowsDriver<WindowsElement> sessionVHF,
+            string Identificador,
+            int nTryCount = 3)
+        {
+            WindowsElement uiTarget = null;
+            System.Threading.Thread.Sleep(2000);
+            while (nTryCount-- > 0)
+            {
+                try
+                {
+                    sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.First());
+                    System.Threading.Thread.Sleep(500);
+                    uiTarget = sessionVHF.FindElementByAccessibilityId(Identificador);
+                }
+                catch
+                {
+                }
+                if (uiTarget != null)
+                {
+                    break;
+                }
+                else
+                {
+                    System.Threading.Thread.Sleep(500);
+                }
+            }
+            return uiTarget;
+        }
     }
 }

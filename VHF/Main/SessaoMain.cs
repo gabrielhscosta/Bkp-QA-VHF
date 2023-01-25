@@ -62,9 +62,9 @@ namespace VHF.Main
         {
             if (sessionVHF != null)
             {
-                //sessionVHF.Close();
-                //sessionVHF.Quit();
-                //sessionVHF = null;
+                sessionVHF.Close();
+                sessionVHF.Quit();
+                sessionVHF = null;
             }
 
             if (sessionVHFCaixa != null)
@@ -101,7 +101,6 @@ namespace VHF.Main
             CN001 reserva = new CN001();
             login.ValidaLoginVHF();
             reserva.ReservaIndividual();
-
         }
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
@@ -113,7 +112,6 @@ namespace VHF.Main
             CN002 reserva = new CN002();
             login.ValidaLoginVHF();
             reserva.ReservaIndividualComClienteSemContrato();
-
         }
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
@@ -125,7 +123,6 @@ namespace VHF.Main
             CN003 reserva = new CN003();
             login.ValidaLoginVHF();
             reserva.ReservaIndividualComClienteContrato();
-
         }
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
@@ -137,7 +134,6 @@ namespace VHF.Main
             CN004 reserva = new CN004();
             login.ValidaLoginVHF();
             reserva.ReservaIndividualComHospedeCortesia();
-
         }
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
@@ -148,7 +144,6 @@ namespace VHF.Main
             CN005 reserva = new CN005();
             login.ValidaLoginVHF();
             reserva.ReservaIndividualComHospedeUsoDaCasa();
-
         }
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
@@ -159,7 +154,6 @@ namespace VHF.Main
             CN007 reserva = new CN007();
             login.ValidaLoginVHF();
             reserva.ReservaIndividualPeloGridDeDisponibilidade();
-
         }
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
@@ -301,7 +295,7 @@ namespace VHF.Main
         }
 
         [TestMethod, TestCategory("3 - Reserva Grupo")]
-        public void CN032_Validar_Slip_Na_Reserva_De_Grupo()
+        public void CN032_Validar_Anexo_Na_Reserva_De_Grupo()
         {
             LoginVHF login = new LoginVHF();
             CN032 alterar = new CN032();

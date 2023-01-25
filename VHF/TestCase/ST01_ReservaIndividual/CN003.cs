@@ -44,10 +44,9 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             validacoes.ValidaNumeroLinhaDoOrc(7);
 
-            validacoes.ValidaOrcamento("stnd", 1, 0, 0, "AUTO NET 2022-60");
+            validacoes.ValidaOrcamento("stnd", 1, 0, 0, "AUTO ACORDO 2022-60");
 
             funcComuns.ValidarTelaPrincipalVhf();
-
         }
 
     }
