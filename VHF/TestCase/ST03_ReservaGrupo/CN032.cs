@@ -13,7 +13,8 @@ namespace VHF.TestCase.ST01_ReservaIndividual
     {
         public CN032()
         {
-
+            //Documantation: Na função InserirAnexoResGrupo() ainda está faltando encontrar uma forma
+            //              de inserir a contra barra corretamente.
         }
 
         public void ValidarAnexoNaReservaDeGrupo()
@@ -38,8 +39,6 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.InserirAnexoResGrupo();
 
-            /*
-
             funcComuns.InserirAcomodacoes();
             
             funcComuns.ValidarSituacaoResGrupo();
@@ -53,8 +52,6 @@ namespace VHF.TestCase.ST01_ReservaIndividual
             validacoes.ValidaOrcamentoGrp("stnd", 1, 0, 0, "AUTO ACORDO 2022-60");
 
             funcComuns.ValidarTelaPrincipalVhf();
-            
-            */
         }
 
     }

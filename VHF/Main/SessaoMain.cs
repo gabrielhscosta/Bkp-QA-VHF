@@ -62,8 +62,8 @@ namespace VHF.Main
         {
             if (sessionVHF != null)
             {
-                sessionVHF.Close();
-                sessionVHF.Quit();
+                //sessionVHF.Close();
+                //sessionVHF.Quit();
                 sessionVHF = null;
             }
 
@@ -97,9 +97,9 @@ namespace VHF.Main
         public void CN001_Reserva_Individual()
         {
        
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN001 reserva = new CN001();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             reserva.ReservaIndividual();
         }
 
@@ -108,9 +108,9 @@ namespace VHF.Main
         public void CN002_ReservaIndividual_Com_Cliente_Contrato_Sem_Contrato()
         {
 
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN002 reserva = new CN002();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             reserva.ReservaIndividualComClienteSemContrato();
         }
 

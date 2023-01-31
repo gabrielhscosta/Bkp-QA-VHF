@@ -28,6 +28,7 @@ namespace VHF.CommonMethods
         public static AppiumWebElement numRes;
         public static AppiumWebElement idRes;
         public static AppiumWebElement numResGrp;
+        public static AppiumWebElement copyDirec;
 
         public void ChamarAtalho(string tecla1, string tecla2, string tecla3 = null, string tecla4 = null)
        {
@@ -794,12 +795,32 @@ namespace VHF.CommonMethods
 
             //Elementos.EncontraElementoAutomationId(sessionVHF, "1148").SendKeys(appObjects.direcAnexo);
 
-            selecAnexo.FindElementByAccessibilityId("1148").SendKeys(appObjects.direcAnexo);
+            selecAnexo.FindElementByAccessibilityId("1148").SendKeys("C:\\Users\\gabriel.dacosta\\Source\\Repos\\QA-VHF\\VHF\\DocAnexo\\logo_totvs.jpg");
 
             Elementos.EncontraElementoName(sessionVHF, "Abrir").Click();
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
 
+        }
+
+        public void InserirObservacaoResGrupo()
+        {
+            Elementos.EncontraElementoName(sessionVHF, appObjects.winSitReserva);
+
+            Elementos.EncontraElementoName(sessionVHF, "Observação").Click();
+
+            sessionVHF.SwitchTo().Window(sessionVHF.WindowHandles.ElementAt(0));
+
+            Elementos.EncontraElementoClassname(sessionVHF, "TRichEdit").SendKeys(appObjects.direcAnexo);
+
+            var insertDirec = sessionVHF.FindElementByClassName("TRichEdit");
+            insertDirec.SendKeys(appObjects.direcAnexo);
+
+            new Actions(sessionVHF).MoveToElement(insertDirec, 544, 54).DoubleClick().Perform();
+
+            copyDirec.SendKeys(Keys.Control + "c");
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
         }
     }
 }
