@@ -233,5 +233,18 @@ namespace VHF.CommonMethods
 
             Elementos.EncontraElementoName(sessionVHF, appObjetcs.btnSair).Click();
         }
+
+        public void ValidaNumeroLinhaAcomodacaoGrp(int qtdAcomo)
+        {
+            int linhasAcomoGrp = realizaConsultas.SelectValidarNumeroLinhasAcomodacaoGrp();
+            Assert.AreEqual(qtdAcomo, linhasAcomoGrp);
+        }
+
+        public void ValidaRoomListGerado()
+        {
+            string idRoomList = realizaConsultas.SelectValidarRoomListGerado();
+            Assert.IsNotNull(idRoomList);
+        }
+        
     }
 }

@@ -14,7 +14,7 @@ namespace VHF.TestCase.ST01_ReservaIndividual
         public CN032()
         {
             //Documantation: Na função InserirAnexoResGrupo() ainda está faltando encontrar uma forma
-            //              de inserir a contra barra corretamente.
+            //              de inserir a contra barra corretamente no diretório do anexo.
         }
 
         public void ValidarAnexoNaReservaDeGrupo()

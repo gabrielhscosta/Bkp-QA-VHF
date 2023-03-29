@@ -57,6 +57,7 @@ namespace VHF.TestCase.ST00_ValidaLoginModulos
             #endregion
 
 
+
             #region Sair da tela de Cartão Consumo
             
             Thread.Sleep(50000);

@@ -62,8 +62,8 @@ namespace VHF.Main
         {
             if (sessionVHF != null)
             {
-                //sessionVHF.Close();
-                //sessionVHF.Quit();
+                sessionVHF.Close();
+                sessionVHF.Quit();
                 sessionVHF = null;
             }
 
@@ -119,9 +119,9 @@ namespace VHF.Main
         public void CN003_ReservaIndividual_Com_Cliente_Contrato()
         {
 
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN003 reserva = new CN003();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             reserva.ReservaIndividualComClienteContrato();
         }
 
@@ -130,9 +130,9 @@ namespace VHF.Main
         public void CN004_Reserva_Individual_Com_Hospede_Cortesia()
         {
 
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN004 reserva = new CN004();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             reserva.ReservaIndividualComHospedeCortesia();
         }
 
@@ -140,9 +140,9 @@ namespace VHF.Main
 
         public void CN005_Reserva_Individual_Com_Hospede_Uso_Da_Casa()
         {
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN005 reserva = new CN005();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             reserva.ReservaIndividualComHospedeUsoDaCasa();
         }
 
@@ -150,9 +150,9 @@ namespace VHF.Main
 
         public void CN007_Reserva_Individual_Pelo_Grid_De_Disponibilidade()
         {
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN007 reserva = new CN007();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             reserva.ReservaIndividualPeloGridDeDisponibilidade();
         }
 
@@ -160,9 +160,9 @@ namespace VHF.Main
 
         public void CN008_Reserva_Individual_Pelo_Grid_De_Disponibilidade_Utilizando_Sugestao_Tarifaria()
         {
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN008 reserva = new CN008();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             reserva.ReservaIndividualPeloGridDeDisponibilidadeUtilizandoSugestaoTarifaria();
         }
 
@@ -170,9 +170,9 @@ namespace VHF.Main
 
         public void CN009_Reserva_Individual_Com_Direcionamento_De_Despesas()
         {
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN009 reserva = new CN009();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             reserva.ReservaIndividualComDirecionamentoDeDespesas();
         }
 
@@ -180,9 +180,9 @@ namespace VHF.Main
 
         public void CN010_Reserva_Individual_Validando_Slip()
         {
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN010 reserva = new CN010();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             reserva.ReservaIndividualValidandoSlip();
         }
 
@@ -190,9 +190,9 @@ namespace VHF.Main
 
         public void CN011_Reserva_Individual_Mais_De_Um_Hospede()
         {
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN011 reserva = new CN011();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             reserva.ReservaIndividualMaisDeUmHospede();
 
         }
@@ -201,10 +201,21 @@ namespace VHF.Main
 
         public void CN012_Reserva_Individual_Mais_De_Um_Hospede_Com_Crianca()
         {
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN012 reserva = new CN012();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             reserva.ReservaIndividualMaisDeUmHospedeComCrianca();
+
+        }
+
+        [TestMethod, TestCategory("1 - Reserva Individual")]
+
+        public void CN013_Vincular_Reserva_Individual_A_Uma_Reserva_De_Grupo()
+        {
+            //LoginVHF login = new LoginVHF();
+            CN013 reserva = new CN013();
+            //login.ValidaLoginVHF();
+            reserva.VincularReservaIndividualAUmaReservaDeGrupo();
 
         }
 
@@ -278,40 +289,40 @@ namespace VHF.Main
 
         [TestMethod, TestCategory("3 - Reserva Grupo")]
         public void CN030_Reserva_Grupo_Com_Conta_Master()
-        {
-            LoginVHF login = new LoginVHF();
+        {   
+            //Para rodar este cenário
+            //Basta selecionar o caso
+            //De teste Login_VHF junto;
+
             CN030 alterar = new CN030();
-            login.ValidaLoginVHF();
             alterar.ReservaGrupoComContaMaster();
         }
 
         [TestMethod, TestCategory("3 - Reserva Grupo")]
         public void CN031_Reserva_Grupo_Com_Direcionamento_De_Despesas()
         {
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN031 alterar = new CN031();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             alterar.ReservaGrupoComDirecionamentoDeDespesas();
         }
 
         [TestMethod, TestCategory("3 - Reserva Grupo")]
         public void CN032_Validar_Anexo_Na_Reserva_De_Grupo()
         {
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN032 alterar = new CN032();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             alterar.ValidarAnexoNaReservaDeGrupo();
         }
 
         [TestMethod, TestCategory("3 - Reserva Grupo")]
         public void CN033_Validar_Slip_Na_Reserva_De_Grupo()
         {
-            LoginVHF login = new LoginVHF();
+            //LoginVHF login = new LoginVHF();
             CN033 alterar = new CN033();
-            login.ValidaLoginVHF();
+            //login.ValidaLoginVHF();
             alterar.ValidarSlipNaReservaDeGrupo();
         }
-        
-
     }
 }

@@ -33,7 +33,7 @@ namespace VHF.CommonMethods
                         " where idHotel = 1" +
                         " and numReserva = " + FuncComuns.numRes.Text +
                         " order by numReserva desc";
-            //" and  statusReserva = 1" +
+                        //" and  statusReserva = 1" +
 
             try
             {
@@ -366,7 +366,58 @@ namespace VHF.CommonMethods
             }
 
             return lineDirecGrp;
-        }       
+        }
+
+        public int SelectValidarNumeroLinhasAcomodacaoGrp()
+        {
+            SqlCommand cmd1 = new SqlCommand();
+
+            int lineAcomo = 0;
+
+            cmd1.CommandText = "select count(*) from acomodacao " +
+                "where idhotel = 1 " +
+                "and IdReservaGrupo = " + FuncComuns.numResGrp.Text;
+
+            try
+            {
+                cmd1.Connection = conexaoBd.conectar();
+                lineAcomo = (int)(cmd1.ExecuteScalar());
+                conexaoBd.desconectar();
+            }
+
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return lineAcomo;
+        }
+
+        public string SelectValidarRoomListGerado()
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            string getRoomList = null;
+
+            cmd.CommandText = "select IdRoomList" +
+                        " from reservasfront" +
+                        " where idHotel = 1" +
+                        " and numReserva = " + FuncComuns.numRes.Text;
+                        //" and  statusReserva = 1" +
+
+            try
+            {
+                cmd.Connection = conexaoBd.conectar();
+                getRoomList = (cmd.ExecuteScalar()).ToString();
+                conexaoBd.desconectar();
+            }
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return getRoomList;
+        }
     }
 
     public class TarifaConsulta

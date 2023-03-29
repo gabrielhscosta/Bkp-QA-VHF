@@ -45,6 +45,7 @@ namespace VHF.PageObjects
         public string btnMaximizar = ("Maximizar");
         public string btnRepetir = ("Repetir");
         public string btnOrcReservas = ("Orçamento reservas");
+        public string btnContinuar = ("Continuar");
 
         #endregion
 
@@ -128,6 +129,7 @@ namespace VHF.PageObjects
         public string txtSQLServer = ("SQL Server");
         public string txtOracle = ("ORACLE");
         public string txtAlertAtencao = ("Atenção");
+        public string txtAlertLicenca = ("Registro de Versões");
         public string titleTelaLogin = ("Login");
         public string titleTelaPrincipalVHF = ("Visual Hotal FrontOffice");
         public string titleTelaPrincVHFCaixa = ("Visual Hotal FrontOffice - CAIXA");

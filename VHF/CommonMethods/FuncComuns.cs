@@ -368,7 +368,6 @@ namespace VHF.CommonMethods
 
         public void ValidarSituacaoRes()
         {
-
             Thread.Sleep(9000);
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.winSitReserva);
@@ -821,6 +820,30 @@ namespace VHF.CommonMethods
             copyDirec.SendKeys(Keys.Control + "c");
 
             Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+        }
+
+        public void VincularIndividualnaResGrupo()
+        {
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnEditar).Click();
+
+            Thread.Sleep(300);
+
+            Elementos.EncontraElementoName(sessionVHF, "+").Click();
+
+            Elementos.EncontraElementoClassname(sessionVHF, appObjects.scrMontaSelect);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnProcurar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnSim).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnConfirmar).Click();
+        }
+
+        public void SairTela()
+        {
+            Elementos.EncontraElementoName(sessionVHF, appObjects.btnSair).Click();
         }
     }
 }

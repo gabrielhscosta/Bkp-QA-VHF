@@ -41,6 +41,8 @@ namespace VHF.TestCase.ST00_ValidaLoginModulos
 
             #endregion
 
+
+
             #region Seleciona Empresa
 
 
@@ -52,6 +54,18 @@ namespace VHF.TestCase.ST00_ValidaLoginModulos
             Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.btnConfirmar).Click();
 
             #endregion
+
+
+            
+            #region Janela Registro de versão
+
+            Thread.Sleep(5000);
+
+            Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.txtAlertLicenca);
+            Elementos.EncontraElementoName(sessionVHF, appObjectsVhf.btnContinuar).Click();
+
+            #endregion
+
 
 
             #region Janela Atenção

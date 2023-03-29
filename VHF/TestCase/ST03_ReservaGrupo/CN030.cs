@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace VHF.TestCase.ST01_ReservaIndividual
 {
@@ -43,6 +44,8 @@ namespace VHF.TestCase.ST01_ReservaIndividual
             validacoes.ValidaReservaGrpGerada();
 
             validacoes.ValidaContaMasterReservaGrp("S");
+
+            validacoes.ValidaNumeroLinhaAcomodacaoGrp(1);
 
             validacoes.ValidaNumeroLinhaDoOrcGrp(7);
 
