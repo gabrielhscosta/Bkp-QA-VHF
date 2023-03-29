@@ -13,8 +13,7 @@ namespace VHF.TestCase.ST01_ReservaIndividual
     {
         public CN013()
         {
-            //Documantation: Na função ValidaRoomListGerado() ainda está faltando encontrar uma forma
-            //              de validar o código RoomList gerado.
+            
         }
 
         public void VincularReservaIndividualAUmaReservaDeGrupo()
@@ -55,11 +54,9 @@ namespace VHF.TestCase.ST01_ReservaIndividual
 
             funcComuns.VincularIndividualnaResGrupo();
 
-            //validacoes.ValidaNumeroLinhaAcomodacaoGrp(2);
+            funcComuns.ValidarSituacaoRes();
 
             validacoes.ValidaRoomListGerado();
-
-            funcComuns.ValidarSituacaoRes();
 
             funcComuns.SairTela();
 
