@@ -7,5 +7,11 @@
 packages/
 VHF/bin/
 VHF/obj/
+VHF//TestCase/
 VHF/packages.config
 VHF/VHF.csproj
+Validacao_Login/bin/
+Validacao_Login/obj/
+Validacao_Login/TestCase/
+Validacao_Login/packages.config
+Validacao_Login/Validacao_Login.csproj
