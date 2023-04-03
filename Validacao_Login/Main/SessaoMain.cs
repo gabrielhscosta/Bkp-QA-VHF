@@ -78,6 +78,8 @@ namespace Validacao_Login.Main
             }
         }
 
+        #region Metodos dos casos de testes
+
         [TestMethod, TestCategory("0 - Validar Login Modulos")]
 
         public void Login_Central_Reservas()
@@ -166,5 +168,7 @@ namespace Validacao_Login.Main
             LoginVHFCaixa loginCaixa = new LoginVHFCaixa();
             loginCaixa.ValidaLoginVHFCaixa();
         }
+
+        #endregion
     }
 }
