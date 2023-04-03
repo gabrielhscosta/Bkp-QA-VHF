@@ -94,6 +94,10 @@ namespace VHF.Main
 
         [TestMethod, TestCategory("1 - Reserva Individual")]
 
+        //Para rodar a suite de teste do tópido Reserva Individual
+        //Basta selecionar o caso de teste Login_VHF junto;
+        //Comentei a rotina de login de dentro de cada cenário.
+
         public void CN001_Reserva_Individual()
         {
        
@@ -290,9 +294,8 @@ namespace VHF.Main
         [TestMethod, TestCategory("3 - Reserva Grupo")]
         public void CN030_Reserva_Grupo_Com_Conta_Master()
         {   
-            //Para rodar este cenário
-            //Basta selecionar o caso
-            //De teste Login_VHF junto;
+            //Para rodar a suite de teste do tópido Reserva de Grupo
+            //Basta selecionar o caso de teste Login_VHF junto;
 
             CN030 alterar = new CN030();
             alterar.ReservaGrupoComContaMaster();
@@ -301,27 +304,21 @@ namespace VHF.Main
         [TestMethod, TestCategory("3 - Reserva Grupo")]
         public void CN031_Reserva_Grupo_Com_Direcionamento_De_Despesas()
         {
-            //LoginVHF login = new LoginVHF();
             CN031 alterar = new CN031();
-            //login.ValidaLoginVHF();
             alterar.ReservaGrupoComDirecionamentoDeDespesas();
         }
 
         [TestMethod, TestCategory("3 - Reserva Grupo")]
         public void CN032_Validar_Anexo_Na_Reserva_De_Grupo()
-        {
-            //LoginVHF login = new LoginVHF();
+        {   
             CN032 alterar = new CN032();
-            //login.ValidaLoginVHF();
             alterar.ValidarAnexoNaReservaDeGrupo();
         }
 
         [TestMethod, TestCategory("3 - Reserva Grupo")]
         public void CN033_Validar_Slip_Na_Reserva_De_Grupo()
         {
-            //LoginVHF login = new LoginVHF();
             CN033 alterar = new CN033();
-            //login.ValidaLoginVHF();
             alterar.ValidarSlipNaReservaDeGrupo();
         }
     }
